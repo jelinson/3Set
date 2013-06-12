@@ -48,3 +48,5 @@ Thumbs.db
 *.perspectivev3
 *.pbxuser
 xcuserdata
+
+*.xcuserstate
