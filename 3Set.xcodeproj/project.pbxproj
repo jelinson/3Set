@@ -87,6 +87,7 @@
 		C62BA83F1768940900F6142B /* 3Set */ = {
 			isa = PBXGroup;
 			children = (
+				C62BA85E17689C8900F6142B /* Img */,
 				C62BA8481768940900F6142B /* TSAppDelegate.h */,
 				C62BA8491768940900F6142B /* TSAppDelegate.m */,
 				C62BA8511768940900F6142B /* MainStoryboard.storyboard */,
@@ -104,11 +105,18 @@
 				C62BA8421768940900F6142B /* InfoPlist.strings */,
 				C62BA8451768940900F6142B /* main.m */,
 				C62BA8471768940900F6142B /* 3Set-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C62BA85E17689C8900F6142B /* Img */ = {
+			isa = PBXGroup;
+			children = (
 				C62BA84B1768940900F6142B /* Default.png */,
 				C62BA84D1768940900F6142B /* Default@2x.png */,
 				C62BA84F1768940900F6142B /* Default-568h@2x.png */,
 			);
-			name = "Supporting Files";
+			name = Img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
