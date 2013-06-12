@@ -23,8 +23,6 @@
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
 		C6FE9F6D17691D5900E0980B /* TSSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F6C17691D5900E0980B /* TSSetModel.m */; };
 		C6FE9F701769204B00E0980B /* TSCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F6F1769204B00E0980B /* TSCardModel.m */; };
-		C6FE9F73176920FE00E0980B /* TSAttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F72176920FE00E0980B /* TSAttributeModel.m */; };
-		C6FE9F761769309600E0980B /* TSCardAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F751769309600E0980B /* TSCardAttributes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,10 +49,6 @@
 		C6FE9F6C17691D5900E0980B /* TSSetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSetModel.m; sourceTree = "<group>"; };
 		C6FE9F6E1769204B00E0980B /* TSCardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCardModel.h; sourceTree = "<group>"; };
 		C6FE9F6F1769204B00E0980B /* TSCardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCardModel.m; sourceTree = "<group>"; };
-		C6FE9F71176920FE00E0980B /* TSAttributeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAttributeModel.h; sourceTree = "<group>"; };
-		C6FE9F72176920FE00E0980B /* TSAttributeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAttributeModel.m; sourceTree = "<group>"; };
-		C6FE9F741769309500E0980B /* TSCardAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCardAttributes.h; sourceTree = "<group>"; };
-		C6FE9F751769309600E0980B /* TSCardAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCardAttributes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,13 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				C6FE9F6B17691D5900E0980B /* TSSetModel.h */,
-				C6FE9F6E1769204B00E0980B /* TSCardModel.h */,
-				C6FE9F741769309500E0980B /* TSCardAttributes.h */,
-				C6FE9F751769309600E0980B /* TSCardAttributes.m */,
-				C6FE9F6F1769204B00E0980B /* TSCardModel.m */,
 				C6FE9F6C17691D5900E0980B /* TSSetModel.m */,
-				C6FE9F71176920FE00E0980B /* TSAttributeModel.h */,
-				C6FE9F72176920FE00E0980B /* TSAttributeModel.m */,
+				C6FE9F6E1769204B00E0980B /* TSCardModel.h */,
+				C6FE9F6F1769204B00E0980B /* TSCardModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -235,8 +225,6 @@
 				C62BA8561768940900F6142B /* TSViewController.m in Sources */,
 				C6FE9F6D17691D5900E0980B /* TSSetModel.m in Sources */,
 				C6FE9F701769204B00E0980B /* TSCardModel.m in Sources */,
-				C6FE9F73176920FE00E0980B /* TSAttributeModel.m in Sources */,
-				C6FE9F761769309600E0980B /* TSCardAttributes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

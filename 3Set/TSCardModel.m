@@ -10,16 +10,24 @@
 
 @implementation TSCardModel
 
-@synthesize attributes;
-
--(id) init {
+-(id) initWithValues:(NSArray *)values
+{
     self = [super init];
     if (self) {
-        
+        int count = [values count];
+        assert(count == TSN_ATTRIBUTE_TYPES);
+        for (int i = 0; i < count; ++i) {
+            attributes[i] = (TSAttributeValue) [values objectAtIndex:i];
+        }
     } else {
-        NSLog(@"Error initializing CardModel");
+        NSLog(@"ERROR: Could not initialize CardModel");
     }
     return self;
+}
+
+-(TSAttributeValue) getValueOfAttribute:(TSAttributeType)type
+{
+    return attributes[type];
 }
 
 @end
