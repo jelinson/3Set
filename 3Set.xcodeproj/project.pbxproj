@@ -19,6 +19,8 @@
 		C62BA8531768940900F6142B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8511768940900F6142B /* MainStoryboard.storyboard */; };
 		C62BA8561768940900F6142B /* TSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BA8551768940900F6142B /* TSViewController.m */; };
 		C62BA85D1768943400F6142B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA85C1768943400F6142B /* GameKit.framework */; };
+		C62BA8641768ACD100F6142B /* green_diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8631768ACD100F6142B /* green_diamond.png */; };
+		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		C62BA8541768940900F6142B /* TSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSViewController.h; sourceTree = "<group>"; };
 		C62BA8551768940900F6142B /* TSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSViewController.m; sourceTree = "<group>"; };
 		C62BA85C1768943400F6142B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		C62BA8631768ACD100F6142B /* green_diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_diamond.png; sourceTree = "<group>"; };
+		C62BA8651768AD2F00F6142B /* triplet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triplet.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +94,7 @@
 				C62BA85E17689C8900F6142B /* Img */,
 				C62BA8481768940900F6142B /* TSAppDelegate.h */,
 				C62BA8491768940900F6142B /* TSAppDelegate.m */,
-				C62BA8511768940900F6142B /* MainStoryboard.storyboard */,
+				C62BA85F1768A81900F6142B /* Storyboards */,
 				C62BA8541768940900F6142B /* TSViewController.h */,
 				C62BA8551768940900F6142B /* TSViewController.m */,
 				C62BA8401768940900F6142B /* Supporting Files */,
@@ -112,11 +116,21 @@
 		C62BA85E17689C8900F6142B /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				C62BA8651768AD2F00F6142B /* triplet.png */,
+				C62BA8631768ACD100F6142B /* green_diamond.png */,
 				C62BA84B1768940900F6142B /* Default.png */,
 				C62BA84D1768940900F6142B /* Default@2x.png */,
 				C62BA84F1768940900F6142B /* Default-568h@2x.png */,
 			);
 			name = Img;
+			sourceTree = "<group>";
+		};
+		C62BA85F1768A81900F6142B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C62BA8511768940900F6142B /* MainStoryboard.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +190,8 @@
 				C62BA84E1768940900F6142B /* Default@2x.png in Resources */,
 				C62BA8501768940900F6142B /* Default-568h@2x.png in Resources */,
 				C62BA8531768940900F6142B /* MainStoryboard.storyboard in Resources */,
+				C62BA8641768ACD100F6142B /* green_diamond.png in Resources */,
+				C62BA8661768AD2F00F6142B /* triplet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
