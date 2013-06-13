@@ -23,6 +23,9 @@
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
 		C6FE9F6D17691D5900E0980B /* TSSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F6C17691D5900E0980B /* TSSetModel.m */; };
 		C6FE9F701769204B00E0980B /* TSCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F6F1769204B00E0980B /* TSCardModel.m */; };
+		C6FE9F791769437D00E0980B /* TSGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F781769437D00E0980B /* TSGameModel.m */; };
+		C6FE9F7C1769443900E0980B /* TSSolvedSetProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F7B1769443900E0980B /* TSSolvedSetProperties.m */; };
+		C6FE9F7F1769456A00E0980B /* TSSolvedSetDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F7E1769456A00E0980B /* TSSolvedSetDescriptor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,12 @@
 		C6FE9F6C17691D5900E0980B /* TSSetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSetModel.m; sourceTree = "<group>"; };
 		C6FE9F6E1769204B00E0980B /* TSCardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCardModel.h; sourceTree = "<group>"; };
 		C6FE9F6F1769204B00E0980B /* TSCardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCardModel.m; sourceTree = "<group>"; };
+		C6FE9F771769437D00E0980B /* TSGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameModel.h; sourceTree = "<group>"; };
+		C6FE9F781769437D00E0980B /* TSGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameModel.m; sourceTree = "<group>"; };
+		C6FE9F7A1769443900E0980B /* TSSolvedSetProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSolvedSetProperties.h; sourceTree = "<group>"; };
+		C6FE9F7B1769443900E0980B /* TSSolvedSetProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSolvedSetProperties.m; sourceTree = "<group>"; };
+		C6FE9F7D1769456A00E0980B /* TSSolvedSetDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSolvedSetDescriptor.h; sourceTree = "<group>"; };
+		C6FE9F7E1769456A00E0980B /* TSSolvedSetDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSolvedSetDescriptor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +156,12 @@
 				C6FE9F6C17691D5900E0980B /* TSSetModel.m */,
 				C6FE9F6E1769204B00E0980B /* TSCardModel.h */,
 				C6FE9F6F1769204B00E0980B /* TSCardModel.m */,
+				C6FE9F771769437D00E0980B /* TSGameModel.h */,
+				C6FE9F7A1769443900E0980B /* TSSolvedSetProperties.h */,
+				C6FE9F7D1769456A00E0980B /* TSSolvedSetDescriptor.h */,
+				C6FE9F7E1769456A00E0980B /* TSSolvedSetDescriptor.m */,
+				C6FE9F7B1769443900E0980B /* TSSolvedSetProperties.m */,
+				C6FE9F781769437D00E0980B /* TSGameModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -225,6 +240,9 @@
 				C62BA8561768940900F6142B /* TSViewController.m in Sources */,
 				C6FE9F6D17691D5900E0980B /* TSSetModel.m in Sources */,
 				C6FE9F701769204B00E0980B /* TSCardModel.m in Sources */,
+				C6FE9F791769437D00E0980B /* TSGameModel.m in Sources */,
+				C6FE9F7C1769443900E0980B /* TSSolvedSetProperties.m in Sources */,
+				C6FE9F7F1769456A00E0980B /* TSSolvedSetDescriptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
