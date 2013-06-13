@@ -17,6 +17,6 @@ typedef enum {
 
 @interface TSSolvedSetDescriptor : NSObject
 
-+(NSString*) generateSolvedSetDescription:(TSSolvedSetDescription) description;
++(NSString*)generateSolvedSetDescription:(TSSolvedSetDescription) description;
 
 @end

@@ -8,8 +8,20 @@
 
 #import "TSSolvedSetDescriptor.h"
 
-
-
 @implementation TSSolvedSetDescriptor
+
++(NSString*)generateSolvedSetDescription:(TSSolvedSetDescription)description
+{
+    switch (description) {
+        case TSSolvedSetNoDifferent:
+            return @"All attributes the same";
+        case TSSolvedSetOneDifferent:
+            return @"Two attributes the same, one different";
+        case TSSolvedSetTwoDifferent:
+            return @"One attribute the same, two different";
+        case TSSolvedSetAllDifferent:
+            return @"All attrbiutes different";
+    }
+}
 
 @end
