@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TSCardModel.h"
 
-@interface TSSetModel : NSObject
+const int TSSET_SIZE = 3;
+
+@interface TSSetModel : NSObject {
+    TSCardModel* cards[TSSET_SIZE];
+    int count;
+}
+
+@property (atomic, assign) bool isValid;
+
+-(void)addCard:(TSCardModel*) card;
+-(bool)isFull;
 
 @end

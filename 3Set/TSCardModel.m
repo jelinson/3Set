@@ -10,7 +10,7 @@
 
 @implementation TSCardModel
 
--(id) initWithValues:(NSArray *)values
+-(id)initWithValues:(NSArray *)values
 {
     self = [super init];
     if (self) {
@@ -25,7 +25,7 @@
     return self;
 }
 
--(TSAttributeValue) getValueOfAttribute:(TSAttributeType)type
+-(TSAttributeValue)getValueOfAttribute:(TSAttributeType)type
 {
     return attributes[type];
 }
