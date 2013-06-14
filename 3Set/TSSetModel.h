@@ -25,5 +25,6 @@ extern const int TSSET_SIZE;
 -(id)init;
 -(void)addCard:(TSCardModel*) card;
 -(bool)isFull;
+-(bool)removeCard:(TSCardModel*) card;
 
 @end

@@ -7,7 +7,7 @@
         <!--Landing Page View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="TSLandingPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TSLandingPageViewController" id="2" customClass="TSLandingPageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

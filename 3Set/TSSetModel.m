@@ -43,6 +43,16 @@ const int TSSET_SIZE = 3;
     }
 }
 
+-(bool)removeCard:(TSCardModel *)card
+{
+    // TODO: possible error when checking for equality
+    if ([_cards containsObject:card]) {
+        [_cards removeObject:card];
+        return true;
+    } else
+        return false;
+}
+
 -(bool)isFull
 {
     return _count == TSSET_SIZE;

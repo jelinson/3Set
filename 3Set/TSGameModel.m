@@ -78,6 +78,13 @@ const int TSNEXT_CARDS_SIZE = 3;
     }
 }
 
+-(void)removeFromWorkingSet:(TSCardModel *)card
+{
+    bool cardWasPresent = [_workingSet removeCard:card];
+    if (!cardWasPresent)
+        NSLog(@"WARNING: Tried to remove an invalid card from a set");
+}
+
 -(TSSetModel*) getSolvedSet
 {
     if (![_workingSet isValid]) {

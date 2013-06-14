@@ -35,6 +35,7 @@ extern const int TSNEXT_CARDS_SIZE;
 -(bool)hasMoreCards;
 -(bool)definitelyASet;
 -(TSGameModelReturnCode)addToWorkingSet:(TSCardModel*) card;
+-(void)removeFromWorkingSet:(TSCardModel*) card;
 -(TSSetModel*)getSolvedSet;
 -(void)cancelWorkingSet;
 
