@@ -8,7 +8,13 @@
 
 #import "TSCardModel.h"
 
+const int TSN_ATTRIBUTE_VALUES = 3;
+const int TSN_ATTRIBUTE_TYPES = 3;
+const int TSALL_DIFFERENT_MASK = 0b111;
+
 @implementation TSCardModel
+
+@synthesize attributes = _attributes;
 
 -(id)initWithValues:(NSArray *)values
 {
@@ -16,8 +22,9 @@
     if (self) {
         int count = [values count];
         assert(count == TSN_ATTRIBUTE_TYPES);
+        _attributes = [NSMutableArray arrayWithCapacity:TSN_ATTRIBUTE_TYPES];
         for (int i = 0; i < count; ++i) {
-            _attributes[i] = [[values objectAtIndex:i] intValue];
+            _attributes[i] = [values objectAtIndex:i];
         }
     } else {
         NSLog(@"ERROR: Could not initialize CardModel");
@@ -27,7 +34,7 @@
 
 -(TSAttributeValue)getValueOfAttribute:(TSAttributeType)type
 {
-    return _attributes[type];
+    return [_attributes[type] intValue];
 }
 
 +(NSArray*) possibleValues

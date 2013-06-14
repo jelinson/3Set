@@ -10,16 +10,16 @@
 #import "TSCardModel.h"
 #import "TSSolvedSetProperties.h"
 
-const int TSSET_SIZE = 3;
+extern const int TSSET_SIZE;
 
 @interface TSSetModel : NSObject {
-    TSCardModel* _cards[TSSET_SIZE];
     int _count;
     int _nDifferent;
 }
 
 @property (atomic, assign) bool isValid;
 @property (atomic, assign) TSSolvedSetDescription _desc;
+@property (atomic, strong, retain) NSMutableArray* cards;
 
 
 -(id)init;

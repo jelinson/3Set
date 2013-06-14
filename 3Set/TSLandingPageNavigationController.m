@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 AIT. All rights reserved.
 //
 
-#import "TSViewController.h"
+#import "TSLandingPageNavigationController.h"
 
-@interface TSViewController ()
+@interface TSLandingPageNavigationController ()
 
 @end
 
-@implementation TSViewController
+@implementation TSLandingPageNavigationController
 
 - (void)viewDidLoad
 {

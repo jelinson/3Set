@@ -18,9 +18,9 @@ typedef enum {
     TSGameModelInvalidSet = 2,
 } TSGameModelReturnCode;
 
-const int TSSTARTING_SIZE = 12;
-const int TSMAX_BOARD_SIZE = 21;
-const int TSNEXT_CARDS_SIZE = TSSET_SIZE;
+extern const int TSSTARTING_SIZE;
+extern const int TSMAX_BOARD_SIZE;
+extern const int TSNEXT_CARDS_SIZE;
 
 @interface TSGameModel : NSObject
 

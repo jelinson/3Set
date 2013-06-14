@@ -8,9 +8,12 @@
 
 #import "TSSetModel.h"
 
+const int TSSET_SIZE = 3;
+
 @implementation TSSetModel
 
 @synthesize isValid = _isValid;
+@synthesize cards = _cards;
 
 -(id)init
 {
@@ -18,7 +21,7 @@
     if (self) {
         _count = 0;
         _nDifferent = 0;
-        // TODO: Check if _cards is initialized properly;
+        _cards = [NSMutableArray arrayWithCapacity:TSSET_SIZE];
     } else {
         NSLog(@"ERROR: Could not initialize SetModel");
     }

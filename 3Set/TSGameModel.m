@@ -8,6 +8,10 @@
 
 #import "TSGameModel.h"
 
+const int TSSTARTING_SIZE = 12;
+const int TSMAX_BOARD_SIZE = 21;
+const int TSNEXT_CARDS_SIZE = 3;
+
 @implementation TSGameModel
 
 @synthesize _deck, _solved, _board, _workingSet;
@@ -58,7 +62,7 @@
 
 -(TSGameModelReturnCode)addToWorkingSet:(TSCardModel *)card
 {
-    if (_workingSet == Nil) {
+    if (_workingSet == nil) {
         _workingSet = [[TSSetModel alloc] init];
     }
     
@@ -78,26 +82,26 @@
 {
     if (![_workingSet isValid]) {
         NSLog(@"WARNING: Requesting solved set when current set is invalid");
-        return Nil;
+        return nil;
     }
     
     TSSetModel* savedSolvedSet = [_workingSet copy];
     [_solved addObject:savedSolvedSet];
-    _workingSet = Nil;
+    _workingSet = nil;
     
     return savedSolvedSet;
 }
 
 -(void) cancelWorkingSet
 {
-    _workingSet = Nil;
+    _workingSet = nil;
 }
 
 -(TSCardModel*) nextCardFromDeck
 {
     if (![self hasMoreCards]) {
         NSLog(@"WARNING: No cards left");
-        return Nil;
+        return nil;
     }
     
     uint32_t randomIndex = arc4random_uniform([_deck count]);

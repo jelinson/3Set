@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSViewController : UIViewController
+@interface TSLandingPageNavigationController : UINavigationController
 
 @end

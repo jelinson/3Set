@@ -14,8 +14,8 @@ typedef enum {
     TSThirdAttributeValue = 4
 } TSAttributeValue;
 
-const int TSN_ATTRIBUTE_VALUES = 3;
-const int TSALL_DIFFERENT_MASK = 0b111;
+extern const int TSN_ATTRIBUTE_VALUES;
+extern const int TSALL_DIFFERENT_MASK;
 
 typedef enum {
     TSColorAttribute = 0,
@@ -23,12 +23,12 @@ typedef enum {
     TSNumberAttribute = 2
 } TSAttributeType;
 
-const int TSN_ATTRIBUTE_TYPES = 3;
+extern const int TSN_ATTRIBUTE_TYPES;
 
-@interface TSCardModel : NSObject {
-    TSAttributeValue _attributes[TSN_ATTRIBUTE_TYPES];
-}
+@interface TSCardModel : NSObject
 
+@property (atomic, strong, retain) NSMutableArray* attributes;
+    
 -(id)initWithValues:(NSArray*) values;
 -(TSAttributeValue)getValueOfAttribute:(TSAttributeType) type;
 
