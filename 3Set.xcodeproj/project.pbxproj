@@ -17,7 +17,7 @@
 		C62BA84E1768940900F6142B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA84D1768940900F6142B /* Default@2x.png */; };
 		C62BA8501768940900F6142B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA84F1768940900F6142B /* Default-568h@2x.png */; };
 		C62BA8531768940900F6142B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8511768940900F6142B /* MainStoryboard.storyboard */; };
-		C62BA8561768940900F6142B /* TSLandingPageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BA8551768940900F6142B /* TSLandingPageNavigationController.m */; };
+		C62BA8561768940900F6142B /* TSLandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BA8551768940900F6142B /* TSLandingPageViewController.m */; };
 		C62BA85D1768943400F6142B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA85C1768943400F6142B /* GameKit.framework */; };
 		C62BA8641768ACD100F6142B /* green_diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8631768ACD100F6142B /* green_diamond.png */; };
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
@@ -43,8 +43,8 @@
 		C62BA84D1768940900F6142B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C62BA84F1768940900F6142B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C62BA8521768940900F6142B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C62BA8541768940900F6142B /* TSLandingPageNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLandingPageNavigationController.h; sourceTree = "<group>"; };
-		C62BA8551768940900F6142B /* TSLandingPageNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLandingPageNavigationController.m; sourceTree = "<group>"; };
+		C62BA8541768940900F6142B /* TSLandingPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLandingPageViewController.h; sourceTree = "<group>"; };
+		C62BA8551768940900F6142B /* TSLandingPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLandingPageViewController.m; sourceTree = "<group>"; };
 		C62BA85C1768943400F6142B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		C62BA8631768ACD100F6142B /* green_diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_diamond.png; sourceTree = "<group>"; };
 		C62BA8651768AD2F00F6142B /* triplet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triplet.png; sourceTree = "<group>"; };
@@ -111,8 +111,8 @@
 				C62BA8481768940900F6142B /* TSAppDelegate.h */,
 				C62BA8491768940900F6142B /* TSAppDelegate.m */,
 				C62BA85F1768A81900F6142B /* Storyboards */,
-				C62BA8541768940900F6142B /* TSLandingPageNavigationController.h */,
-				C62BA8551768940900F6142B /* TSLandingPageNavigationController.m */,
+				C62BA8541768940900F6142B /* TSLandingPageViewController.h */,
+				C62BA8551768940900F6142B /* TSLandingPageViewController.m */,
 				C62BA8401768940900F6142B /* Supporting Files */,
 			);
 			path = 3Set;
@@ -237,7 +237,7 @@
 			files = (
 				C62BA8461768940900F6142B /* main.m in Sources */,
 				C62BA84A1768940900F6142B /* TSAppDelegate.m in Sources */,
-				C62BA8561768940900F6142B /* TSLandingPageNavigationController.m in Sources */,
+				C62BA8561768940900F6142B /* TSLandingPageViewController.m in Sources */,
 				C6FE9F6D17691D5900E0980B /* TSSetModel.m in Sources */,
 				C6FE9F701769204B00E0980B /* TSCardModel.m in Sources */,
 				C6FE9F791769437D00E0980B /* TSGameModel.m in Sources */,
