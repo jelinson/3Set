@@ -10,7 +10,7 @@
 
 @implementation TSSetModel
 
-@synthesize _isValid = isValid;
+@synthesize isValid = _isValid;
 
 -(id)init
 {
