@@ -18,7 +18,7 @@ const int TSSET_SIZE = 3;
     int _nDifferent;
 }
 
-@property (atomic, assign) bool _isValid;
+@property (atomic, assign) bool isValid;
 @property (atomic, assign) TSSolvedSetDescription _desc;
 
 

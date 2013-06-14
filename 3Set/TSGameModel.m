@@ -27,6 +27,85 @@
     return self;
 }
 
+-(NSArray*)deal
+{
+    for (int i = 0; i < TSSTARTING_SIZE; ++i) {
+        [_board addObject:[self nextCardFromDeck]];
+    }
+    return _board;
+}
+
+-(NSArray*)dealNextCards
+{
+    NSMutableArray* nextCards = [NSMutableArray arrayWithCapacity:TSNEXT_CARDS_SIZE];
+    for (int i = 0; i < TSNEXT_CARDS_SIZE; ++i) {
+        TSCardModel* card = [self nextCardFromDeck];
+        [_board addObject:card];
+        [nextCards addObject:card];
+    }
+    return nextCards;
+}
+
+-(bool) hasMoreCards
+{
+    return [_deck count];
+}
+
+-(bool) definitelyASet
+{
+    return [_board count] >= TSMAX_BOARD_SIZE;
+}
+
+-(TSGameModelReturnCode)addToWorkingSet:(TSCardModel *)card
+{
+    if (_workingSet == Nil) {
+        _workingSet = [[TSSetModel alloc] init];
+    }
+    
+    [_workingSet addCard:card];
+    if ([_workingSet isFull]) {
+        if ([_workingSet isValid]) {
+            return TSGameModelValidSet;
+        } else {
+            return TSGameModelInvalidSet;
+        }
+    } else {
+        return TSGameModelIncompleteSet;
+    }
+}
+
+-(TSSetModel*) getSolvedSet
+{
+    if (![_workingSet isValid]) {
+        NSLog(@"WARNING: Requesting solved set when current set is invalid");
+        return Nil;
+    }
+    
+    TSSetModel* savedSolvedSet = [_workingSet copy];
+    [_solved addObject:savedSolvedSet];
+    _workingSet = Nil;
+    
+    return savedSolvedSet;
+}
+
+-(void) cancelWorkingSet
+{
+    _workingSet = Nil;
+}
+
+-(TSCardModel*) nextCardFromDeck
+{
+    if (![self hasMoreCards]) {
+        NSLog(@"WARNING: No cards left");
+        return Nil;
+    }
+    
+    uint32_t randomIndex = arc4random_uniform([_deck count]);
+    TSCardModel* card = [_deck objectAtIndex:randomIndex];
+    [_deck removeObjectAtIndex:randomIndex];
+    return card;
+}
+
 +(NSMutableArray*)generateDeck
 {
     NSMutableArray* deck = [NSMutableArray array];

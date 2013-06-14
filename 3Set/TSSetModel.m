@@ -10,7 +10,7 @@
 
 @implementation TSSetModel
 
-@synthesize _isValid;
+@synthesize _isValid = isValid;
 
 -(id)init
 {
@@ -29,7 +29,7 @@
 -(void)addCard:(TSCardModel *)card
 {
     if (![self isFull]) {
-        _cards[_count] = card;
+        _cards[_count] = [card copy];
         ++_count;
         
         if ([self isFull]) {

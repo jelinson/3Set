@@ -19,6 +19,7 @@ typedef enum {
 } TSGameModelReturnCode;
 
 const int TSSTARTING_SIZE = 12;
+const int TSMAX_BOARD_SIZE = 21;
 const int TSNEXT_CARDS_SIZE = TSSET_SIZE;
 
 @interface TSGameModel : NSObject
@@ -29,9 +30,10 @@ const int TSNEXT_CARDS_SIZE = TSSET_SIZE;
 @property (atomic, strong, readonly) TSSetModel* _workingSet;
 
 -(id)init;
--(NSMutableArray*)deal;
--(NSMutableArray*)dealNextCards;
+-(NSArray*)deal;
+-(NSArray*)dealNextCards;
 -(bool)hasMoreCards;
+-(bool)definitelyASet;
 -(TSGameModelReturnCode)addToWorkingSet:(TSCardModel*) card;
 -(TSSetModel*)getSolvedSet;
 -(void)cancelWorkingSet;
