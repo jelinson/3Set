@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TSSolvedSetDescriptor.h"
 
 @interface TSSolvedSetProperties : NSObject
 
-@property (atomic, assign) int playerID;
-@property (atomic, assign) double timeToFind;
-@property (atomic, assign) 
+@property (atomic, assign) int _playerID;
+@property (atomic, assign) NSTimeInterval _timeToFind;
+@property (atomic, assign) TSSolvedSetDescription _desc;
+
+-(id)initWithPlayer:(int)playerID andTime:(NSTimeInterval)timeToFind andDesciption:(TSSolvedSetDescription) desc;
 
 @end

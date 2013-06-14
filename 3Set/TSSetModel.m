@@ -10,43 +10,63 @@
 
 @implementation TSSetModel
 
-@synthesize isValid;
+@synthesize _isValid;
+
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        _count = 0;
+        _nDifferent = 0;
+        // TODO: Check if _cards is initialized properly;
+    } else {
+        NSLog(@"ERROR: Could not initialize SetModel");
+    }
+
+    return self;
+}
 
 -(void)addCard:(TSCardModel *)card
 {
     if (![self isFull]) {
-        cards[count] = card;
-        ++count;
+        _cards[_count] = card;
+        ++_count;
         
         if ([self isFull]) {
             [self validate];
         }
     } else {
-        NSLog(@"WARNING: Adding to a full set");
+        NSLog(@"WARNING: Adding to a full set; ignoring");
     }
 }
 
 -(bool)isFull
 {
-    return count == TSSET_SIZE;
+    return _count == TSSET_SIZE;
 }
 
 -(void)validate
 {
+    _nDifferent = 0;
     for (int i = 0; i < TSN_ATTRIBUTE_TYPES; ++i) {
         int same = ~0;
         int diff = 0;
         for (int j = 0; j <TSSET_SIZE; ++j) {
-            same &= [cards[j] getValueOfAttribute:i];
-            diff |= [cards[j] getValueOfAttribute:i];
+            same &= [_cards[j] getValueOfAttribute:i];
+            diff |= [_cards[j] getValueOfAttribute:i];
         }
         
-        if (diff != TSALL_DIFFERENT_MASK && !same) {
-            isValid = false;
+        if (diff == TSALL_DIFFERENT_MASK) {
+            _nDifferent +=1;
+            continue;
+        } else if (same) {
+            continue;
+        } else {
+            _isValid = false;
             return;
         }
     }
-    isValid = true;
+    _isValid = true;
 }
 
 @end

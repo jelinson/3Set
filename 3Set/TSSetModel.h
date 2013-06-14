@@ -8,16 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "TSCardModel.h"
+#import "TSSolvedSetProperties.h"
 
 const int TSSET_SIZE = 3;
 
 @interface TSSetModel : NSObject {
-    TSCardModel* cards[TSSET_SIZE];
-    int count;
+    TSCardModel* _cards[TSSET_SIZE];
+    int _count;
+    int _nDifferent;
 }
 
-@property (atomic, assign) bool isValid;
+@property (atomic, assign) bool _isValid;
+@property (atomic, assign) TSSolvedSetDescription _desc;
 
+
+-(id)init;
 -(void)addCard:(TSCardModel*) card;
 -(bool)isFull;
 

@@ -157,11 +157,11 @@
 				C6FE9F6E1769204B00E0980B /* TSCardModel.h */,
 				C6FE9F6F1769204B00E0980B /* TSCardModel.m */,
 				C6FE9F771769437D00E0980B /* TSGameModel.h */,
-				C6FE9F7A1769443900E0980B /* TSSolvedSetProperties.h */,
+				C6FE9F781769437D00E0980B /* TSGameModel.m */,
 				C6FE9F7D1769456A00E0980B /* TSSolvedSetDescriptor.h */,
 				C6FE9F7E1769456A00E0980B /* TSSolvedSetDescriptor.m */,
+				C6FE9F7A1769443900E0980B /* TSSolvedSetProperties.h */,
 				C6FE9F7B1769443900E0980B /* TSSolvedSetProperties.m */,
-				C6FE9F781769437D00E0980B /* TSGameModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";

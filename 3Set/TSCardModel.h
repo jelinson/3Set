@@ -25,12 +25,13 @@ typedef enum {
 
 const int TSN_ATTRIBUTE_TYPES = 3;
 
-
 @interface TSCardModel : NSObject {
-    TSAttributeValue attributes[TSN_ATTRIBUTE_TYPES];
+    TSAttributeValue _attributes[TSN_ATTRIBUTE_TYPES];
 }
 
 -(id)initWithValues:(NSArray*) values;
 -(TSAttributeValue)getValueOfAttribute:(TSAttributeType) type;
+
++(NSArray*) possibleValues;
 
 @end
