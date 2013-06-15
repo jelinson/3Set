@@ -39,6 +39,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 {
     [super viewDidLoad];
     [self initializeGame];
+    self.collectionView.allowsMultipleSelection = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -143,10 +144,14 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"In collection view");
     TSCardCellView* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCellID" forIndexPath:indexPath];
+    
+    UIView* blueColorView = [[UIView alloc] init];
+    [blueColorView setBackgroundColor:[UIColor blueColor]];
+    [cell setSelectedBackgroundView:blueColorView];
+    
+    [cell setSelectedBackgroundView:blueColorView];
     [cell assignCard:[cardsInPlay objectAtIndex:[indexPath item]]];
-    NSLog(@"Out collection view");
     return cell;
 }
 
@@ -154,6 +159,16 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 {
     int cardsLeft = [gameModel cardsRemainingInDesk] + [cardsInPlay count];
     [statsButton setTitle:[NSString stringWithFormat:@"%d", cardsLeft]];
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+//    [self.collectionView performBatchUpdates:^{
+//        [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+//        [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+//    } completion:nil];
 }
 
 @end
