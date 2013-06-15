@@ -131,19 +131,24 @@ const int TSNEXT_CARDS_SIZE = 3;
     // TODO make this not dependent on the number of attributes
     // make a function that takes in an array and enumerates alls the combinations of appending a new value
 
-    // first attribute
+    
     for (int i = 0; i < TSN_ATTRIBUTE_VALUES; ++i) {
         for (int j = 0; j < TSN_ATTRIBUTE_VALUES; ++j) {
             for (int k = 0; k < TSN_ATTRIBUTE_VALUES; ++k) {
-                NSNumber* first = [possibleValues objectAtIndex:i];
-                NSNumber* second = [possibleValues objectAtIndex:j];
-                NSNumber* third = [possibleValues objectAtIndex:k];
-                
-                NSArray* cardValues = [NSArray arrayWithObjects:first, second, third, nil];
-                
-                TSCardModel* card = [[TSCardModel alloc] initWithValues:cardValues];
-                
-                [deck addObject:card];
+                for (int l = 0; l < TSN_ATTRIBUTE_VALUES; ++l) {
+                    NSNumber* first = [possibleValues objectAtIndex:i];
+                    NSNumber* second = [possibleValues objectAtIndex:j];
+                    NSNumber* third = [possibleValues objectAtIndex:k];
+                    NSNumber* fourth = [possibleValues objectAtIndex:l];
+                    
+                    NSArray* cardValues = [NSArray arrayWithObjects:first, second, third, fourth, nil];
+                    
+                    assert([cardValues count] == TSN_ATTRIBUTE_TYPES);
+                    
+                    TSCardModel* card = [[TSCardModel alloc] initWithValues:cardValues];
+                    
+                    [deck addObject:card];
+                }
             }
         }
     }

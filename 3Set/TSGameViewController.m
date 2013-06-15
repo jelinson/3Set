@@ -38,12 +38,13 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initializeGame];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self initializeGame];
+
 }
 - (IBAction)onBackgroundClick:(id)sender
 {
@@ -142,8 +143,10 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"In collection view");
     TSCardCellView* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCellID" forIndexPath:indexPath];
-    [cell setCard:[cardsInPlay objectAtIndex:[indexPath item]]];
+    [cell assignCard:[cardsInPlay objectAtIndex:[indexPath item]]];
+    NSLog(@"Out collection view");
     return cell;
 }
 

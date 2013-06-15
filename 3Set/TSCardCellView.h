@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "TSCardModel.h"
 
-@interface TSCardCellView : UICollectionViewCell
+@interface TSCardCellView : UICollectionViewCell {
 
-@property (weak, readwrite) TSCardModel* card;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *cardLabel;
+@property (weak, readwrite) TSCardModel* card;
+
+-(void)assignCard:(TSCardModel *)card;
 
 @end

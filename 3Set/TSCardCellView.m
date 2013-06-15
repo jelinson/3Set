@@ -11,6 +11,7 @@
 @implementation TSCardCellView
 
 @synthesize cardLabel;
+@synthesize card = _card;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -21,15 +22,10 @@
     return self;
 }
 
--(void)setCard:(TSCardModel *)card
+-(void)assignCard:(TSCardModel *)card
 {
-    self.card = card;
-    [cardLabel setText:[card toString]];
-}
-
--(TSCardModel*)card
-{
-    return self.card;
+    _card = card;
+    [cardLabel setText:[self.card toString]];
 }
 
 /*
