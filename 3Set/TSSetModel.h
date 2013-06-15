@@ -19,7 +19,7 @@ extern const int TSSET_SIZE;
 
 @property (atomic, assign) bool isValid;
 @property (atomic, assign) TSSolvedSetDescription _desc;
-@property (atomic, strong, retain) NSMutableArray* cards;
+@property (atomic, strong, readonly) NSMutableArray* cards;
 
 
 -(id)init;

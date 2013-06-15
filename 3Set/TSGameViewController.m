@@ -16,7 +16,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 @implementation TSGameViewController
 
-@synthesize gameTimer, gameTimerLabel, statsButton, gameTimerSeconds, interfaceInteractionTimer, interfaceInteractionTimerSeconds;
+@synthesize gameTimer, gameTimerLabel, statsButton, gameTimerSeconds, interfaceInteractionTimer, interfaceInteractionTimerSeconds, gameModel, cardsInPlay;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +28,13 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     return self;
 }
 
+- (void)initializeGame;
+{
+    gameModel = [[TSGameModel alloc] init];
+    cardsInPlay = [gameModel deal];
+    assert([cardsInPlay count] == TSSTARTING_SIZE);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,11 +43,11 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self initializeGame];
 }
 - (IBAction)onBackgroundClick:(id)sender
 {
     [self interfaceInteractionEvent];
-    
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -61,7 +68,6 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 - (IBAction)onShuffleCardsClick:(id)sender
 {
     [self interfaceInteractionEvent];
@@ -127,6 +133,24 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 - (bool)updateGameTimerCriteria
 {
     return ([self isViewLoaded] && [self .view window]);
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return TSSTARTING_SIZE;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TSCardCellView* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCellID" forIndexPath:indexPath];
+    [cell setCard:[cardsInPlay objectAtIndex:[indexPath item]]];
+    return cell;
+}
+
+- (void)updateStatsButton
+{
+    int cardsLeft = [gameModel cardsRemainingInDesk] + [cardsInPlay count];
+    [statsButton setTitle:[NSString stringWithFormat:@"%d", cardsLeft]];
 }
 
 @end

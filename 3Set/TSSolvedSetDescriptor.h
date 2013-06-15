@@ -12,7 +12,8 @@ typedef enum {
     TSSolvedSetNoDifferent = 0,
     TSSolvedSetOneDifferent = 1,
     TSSolvedSetTwoDifferent = 2,
-    TSSolvedSetAllDifferent = 3
+    TSSvoledSetThreeDifferent = 3,
+    TSSolvedSetAllDifferent = 4
 } TSSolvedSetDescription;
 
 @interface TSSolvedSetDescriptor : NSObject

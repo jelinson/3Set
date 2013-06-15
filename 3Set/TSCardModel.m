@@ -9,7 +9,7 @@
 #import "TSCardModel.h"
 
 const int TSN_ATTRIBUTE_VALUES = 3;
-const int TSN_ATTRIBUTE_TYPES = 3;
+const int TSN_ATTRIBUTE_TYPES = 4;
 const int TSALL_DIFFERENT_MASK = 0b111;
 
 @implementation TSCardModel
@@ -35,6 +35,15 @@ const int TSALL_DIFFERENT_MASK = 0b111;
 -(TSAttributeValue)getValueOfAttribute:(TSAttributeType)type
 {
     return [_attributes[type] intValue];
+}
+
+-(NSString *)toString
+{
+    NSMutableString* attributeSummary = [[NSMutableString alloc] init];
+    for (int i = 0; i < [_attributes count]; ++i) {
+        [attributeSummary appendFormat:@"%d ", [_attributes[i] intValue]];
+    }
+    return attributeSummary;
 }
 
 +(NSArray*) possibleValues

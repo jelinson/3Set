@@ -16,9 +16,11 @@
         case TSSolvedSetNoDifferent:
             return @"All attributes the same";
         case TSSolvedSetOneDifferent:
-            return @"Two attributes the same, one different";
+            return @"Three attributes the same, one different";
         case TSSolvedSetTwoDifferent:
-            return @"One attribute the same, two different";
+            return @"Two attributes the same, two different";
+        case TSSvoledSetThreeDifferent:
+            return @"One attribute the same, three different";
         case TSSolvedSetAllDifferent:
             return @"All attrbiutes different";
     }

@@ -20,17 +20,19 @@ extern const int TSALL_DIFFERENT_MASK;
 typedef enum {
     TSColorAttribute = 0,
     TSShadeAttribute = 1,
-    TSNumberAttribute = 2
+    TSNumberAttribute = 2,
+    TSShapeAttribute = 3
 } TSAttributeType;
 
 extern const int TSN_ATTRIBUTE_TYPES;
 
 @interface TSCardModel : NSObject
 
-@property (atomic, strong, retain) NSMutableArray* attributes;
+@property (atomic, strong, readwrite) NSMutableArray* attributes;
     
 -(id)initWithValues:(NSArray*) values;
 -(TSAttributeValue)getValueOfAttribute:(TSAttributeType) type;
+-(NSString*)toString;
 
 +(NSArray*) possibleValues;
 

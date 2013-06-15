@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TSGameModel.h"
+#import "TSCardModel.h"
+#import "TSCardCellView.h"
 
 extern const int TSINTERACTION_TIME_THRESHOLD;
 
-@interface TSGameViewController : UIViewController
+@interface TSGameViewController : UICollectionViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *gameTimerLabel;
 
@@ -21,4 +24,8 @@ extern const int TSINTERACTION_TIME_THRESHOLD;
 @property (assign) int gameTimerSeconds;
 @property int interfaceInteractionTimerSeconds;
 
+@property (strong) TSGameModel* gameModel;
+@property (weak) NSArray* cardsInPlay;
+
 @end
+
