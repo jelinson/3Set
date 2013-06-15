@@ -15,16 +15,53 @@
 @implementation TSLandingPageViewController
 
 
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        [self configureViewController];
+    }
+    
+    return self;
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self configureViewController];
+    }
+    return self;
+}
+
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self configureViewController];
+    }
+    return self;
+}
+
+- (void) configureViewController
+{
+//    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
+//    barButton.title = @"Menu";
+//    
+//    self.navigationItem.backBarButtonItem = barButton;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
     [super viewWillAppear:animated];
-    NSLog(@"viewWillAppear called");
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController setToolbarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
 
