@@ -117,6 +117,11 @@ const int TSNEXT_CARDS_SIZE = 3;
     return card;
 }
 
+-(int)cardsRemainingInDesk
+{
+    return [_deck count];
+}
+
 +(NSMutableArray*)generateDeck
 {
     NSMutableArray* deck = [NSMutableArray array];

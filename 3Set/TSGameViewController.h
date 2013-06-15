@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+extern const int TSINTERACTION_TIME_THRESHOLD;
+
 @interface TSGameViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *gameTimerLabel;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *statsButton;
+
+@property (strong) NSTimer* gameTimer;
+@property (strong) NSTimer* interfaceInteractionTimer;
+@property (assign) int gameTimerSeconds;
+@property int interfaceInteractionTimerSeconds;
 
 @end

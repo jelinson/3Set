@@ -23,6 +23,8 @@
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
 		C6E4ED6D176C782C00D1F009 /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E4ED6C176C782C00D1F009 /* shuffle.png */; };
 		C6E4ED70176C7AB300D1F009 /* TSGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */; };
+		C6E4ED74176C86F800D1F009 /* TSGeneralStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED73176C86F700D1F009 /* TSGeneralStatsViewController.m */; };
+		C6E4ED77176C89C300D1F009 /* TSPlayerStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED76176C89C300D1F009 /* TSPlayerStatsViewController.m */; };
 		C6FE9F6D17691D5900E0980B /* TSSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F6C17691D5900E0980B /* TSSetModel.m */; };
 		C6FE9F701769204B00E0980B /* TSCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F6F1769204B00E0980B /* TSCardModel.m */; };
 		C6FE9F791769437D00E0980B /* TSGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FE9F781769437D00E0980B /* TSGameModel.m */; };
@@ -53,6 +55,10 @@
 		C6E4ED6C176C782C00D1F009 /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle.png; sourceTree = "<group>"; };
 		C6E4ED6E176C7AB300D1F009 /* TSGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameViewController.h; sourceTree = "<group>"; };
 		C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameViewController.m; sourceTree = "<group>"; };
+		C6E4ED72176C86F700D1F009 /* TSGeneralStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGeneralStatsViewController.h; sourceTree = "<group>"; };
+		C6E4ED73176C86F700D1F009 /* TSGeneralStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGeneralStatsViewController.m; sourceTree = "<group>"; };
+		C6E4ED75176C89C300D1F009 /* TSPlayerStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPlayerStatsViewController.h; sourceTree = "<group>"; };
+		C6E4ED76176C89C300D1F009 /* TSPlayerStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSPlayerStatsViewController.m; sourceTree = "<group>"; };
 		C6FE9F6B17691D5900E0980B /* TSSetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSetModel.h; sourceTree = "<group>"; };
 		C6FE9F6C17691D5900E0980B /* TSSetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSetModel.m; sourceTree = "<group>"; };
 		C6FE9F6E1769204B00E0980B /* TSCardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCardModel.h; sourceTree = "<group>"; };
@@ -157,10 +163,14 @@
 		C6E4ED71176C7AC000D1F009 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				C6E4ED75176C89C300D1F009 /* TSPlayerStatsViewController.h */,
+				C6E4ED76176C89C300D1F009 /* TSPlayerStatsViewController.m */,
 				C62BA8541768940900F6142B /* TSLandingPageViewController.h */,
 				C62BA8551768940900F6142B /* TSLandingPageViewController.m */,
 				C6E4ED6E176C7AB300D1F009 /* TSGameViewController.h */,
 				C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */,
+				C6E4ED72176C86F700D1F009 /* TSGeneralStatsViewController.h */,
+				C6E4ED73176C86F700D1F009 /* TSGeneralStatsViewController.m */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -261,6 +271,8 @@
 				C6FE9F7C1769443900E0980B /* TSSolvedSetProperties.m in Sources */,
 				C6FE9F7F1769456A00E0980B /* TSSolvedSetDescriptor.m in Sources */,
 				C6E4ED70176C7AB300D1F009 /* TSGameViewController.m in Sources */,
+				C6E4ED74176C86F800D1F009 /* TSGeneralStatsViewController.m in Sources */,
+				C6E4ED77176C89C300D1F009 /* TSPlayerStatsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

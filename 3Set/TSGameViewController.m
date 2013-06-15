@@ -8,17 +8,21 @@
 
 #import "TSGameViewController.h"
 
+const int TSINTERACTION_TIME_THRESHOLD = 2;
+
 @interface TSGameViewController ()
 
 @end
 
 @implementation TSGameViewController
 
+@synthesize gameTimer, gameTimerLabel, statsButton, gameTimerSeconds, interfaceInteractionTimer, interfaceInteractionTimerSeconds;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        // customize
     }
     
     return self;
@@ -27,13 +31,102 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+- (IBAction)onBackgroundClick:(id)sender
+{
+    [self interfaceInteractionEvent];
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    gameTimer = [self createTimer:@selector(gameTimerTicked:)];
+    [self showNavigationElements];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [gameTimer invalidate];
+    [interfaceInteractionTimer invalidate];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onShuffleCardsClick:(id)sender
+{
+    [self interfaceInteractionEvent];
+}
+
+- (IBAction)onAddCardsClick:(id)sender
+{
+    [self interfaceInteractionEvent];
+}
+
+// reference from
+// http://stackoverflow.com/questions/3041256/basic-iphone-timer-example
+
+- (NSTimer*)createTimer:(SEL)receiver
+{
+    return [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:receiver userInfo:nil repeats:YES];
+}
+
+- (void)gameTimerTicked:(NSTimer*)timer
+{
+    if ([self updateGameTimerCriteria]) {
+        gameTimerSeconds += 1;
+        int minutes = gameTimerSeconds / 60;
+        int seconds = gameTimerSeconds % 60;
+    
+        NSString *timerTitle;
+        timerTitle = [NSString stringWithFormat:@"Time: %i:%02d", minutes, seconds];
+    
+        [gameTimerLabel setTitle:timerTitle];
+    }
+}
+
+- (void)interfaceInteractionTimerTicked:(NSTimer*)timer
+{
+    interfaceInteractionTimerSeconds += 1;
+    if (interfaceInteractionTimerSeconds >= TSINTERACTION_TIME_THRESHOLD) {
+        [self focusOnBoard];
+        [interfaceInteractionTimer invalidate];
+    }
+}
+
+- (void)interfaceInteractionEvent
+{
+    [self showNavigationElements];
+}
+
+- (void) focusOnBoard
+{
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setToolbarHidden:YES animated:YES];
+    [interfaceInteractionTimer invalidate];
+}
+
+- (void) showNavigationElements
+{
+    interfaceInteractionTimerSeconds = 0;
+    [interfaceInteractionTimer invalidate];
+    interfaceInteractionTimer = [self createTimer:@selector(interfaceInteractionTimerTicked:)];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
+    [[self navigationController] setToolbarHidden:NO animated:NO];
+}
+
+- (bool)updateGameTimerCriteria
+{
+    return ([self isViewLoaded] && [self .view window]);
 }
 
 @end
