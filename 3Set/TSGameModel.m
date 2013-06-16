@@ -85,7 +85,7 @@ const int TSNEXT_CARDS_SIZE = 3;
         NSLog(@"WARNING: Tried to remove an invalid card from a set");
 }
 
--(TSSetModel*) getSolvedSet
+-(TSSetModel*) processAndReturnSolvedSet
 {
     if (![_workingSet isValid]) {
         NSLog(@"WARNING: Requesting solved set when current set is invalid");
@@ -120,6 +120,11 @@ const int TSNEXT_CARDS_SIZE = 3;
 -(int)cardsRemainingInDesk
 {
     return [_deck count];
+}
+
+-(int)cardsInPlayCount
+{
+    return [_board count];
 }
 
 +(NSMutableArray*)generateDeck

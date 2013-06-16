@@ -36,9 +36,10 @@ extern const int TSNEXT_CARDS_SIZE;
 -(bool)definitelyASet;
 -(TSGameModelReturnCode)addToWorkingSet:(TSCardModel*) card;
 -(void)removeFromWorkingSet:(TSCardModel*) card;
--(TSSetModel*)getSolvedSet;
+-(TSSetModel*)processAndReturnSolvedSet;
 -(void)cancelWorkingSet;
 -(int)cardsRemainingInDesk;
+-(int)cardsInPlayCount;
 
 +(NSMutableArray*)generateDeck;
 

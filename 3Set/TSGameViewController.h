@@ -16,13 +16,14 @@ extern const int TSINTERACTION_TIME_THRESHOLD;
 @interface TSGameViewController : UICollectionViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *gameTimerLabel;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *statsButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addCardsButton;
 
 @property (strong) NSTimer* gameTimer;
 @property (strong) NSTimer* interfaceInteractionTimer;
 @property (assign) int gameTimerSeconds;
-@property int interfaceInteractionTimerSeconds;
+@property (assign) int interfaceInteractionTimerSeconds;
+@property (assign) int lastSetTimeStamp;
 
 @property (strong) TSGameModel* gameModel;
 @property (weak) NSArray* cardsInPlay;

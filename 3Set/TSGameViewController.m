@@ -16,17 +16,12 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 @implementation TSGameViewController
 
-@synthesize gameTimer, gameTimerLabel, statsButton, gameTimerSeconds, interfaceInteractionTimer, interfaceInteractionTimerSeconds, gameModel, cardsInPlay;
+@synthesize gameTimer, gameTimerLabel, gameTimerSeconds;
+@synthesize interfaceInteractionTimer, interfaceInteractionTimerSeconds;
+@synthesize lastSetTimeStamp;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // customize
-    }
-    
-    return self;
-}
+@synthesize statsButton, addCardsButton;
+@synthesize gameModel, cardsInPlay;
 
 - (void)initializeGame;
 {
@@ -37,6 +32,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)viewDidLoad
 {
+    NSLog(@"ViewDidLoad");
     [super viewDidLoad];
     [self initializeGame];
     self.collectionView.allowsMultipleSelection = YES;
@@ -44,16 +40,14 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"ViewWillAppear");
     [super viewWillAppear:animated];
 
-}
-- (IBAction)onBackgroundClick:(id)sender
-{
-    [self interfaceInteractionEvent];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    NSLog(@"ViewDidAppear");
     gameTimer = [self createTimer:@selector(gameTimerTicked:)];
     [self showNavigationElements];
 }
@@ -65,11 +59,6 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     [interfaceInteractionTimer invalidate];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)onShuffleCardsClick:(id)sender
 {
     [self interfaceInteractionEvent];
@@ -80,7 +69,91 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     [self interfaceInteractionEvent];
 }
 
-// reference from
+- (IBAction)onViewClick:(id)sender
+{
+    [self interfaceInteractionEvent];
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TSCardCellView* selectedCell = (TSCardCellView*) [collectionView cellForItemAtIndexPath:indexPath];
+    TSCardModel* selectedCard = [selectedCell card];
+    TSGameModelReturnCode result = [gameModel addToWorkingSet:selectedCard];
+
+    switch (result) {
+        case TSGameModelValidSet:
+            [self handleValidSetEvent];
+            break;
+        
+        case TSGameModelInvalidSet:
+            [self handleInvalidSetEvent];
+            break;
+            
+        case TSGameModelIncompleteSet:
+            return;
+    }
+    
+    //    [self.collectionView performBatchUpdates:^{
+    //        [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+    //        [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+    //    } completion:nil];
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TSCardCellView* deselectedCell = (TSCardCellView*) [collectionView cellForItemAtIndexPath:indexPath];
+    TSCardModel* deselectedCard = [deselectedCell card];
+    
+    [gameModel removeFromWorkingSet:deselectedCard];
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    NSLog(@"numebrOfItems requested");
+    return [gameModel cardsInPlayCount];
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog([NSString stringWithFormat:@"CellQueried %d", [indexPath item]]);
+    TSCardCellView* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCellID" forIndexPath:indexPath];
+    
+    UIView* blueColorView = [[UIView alloc] init];
+    [blueColorView setBackgroundColor:[UIColor blueColor]];
+    [cell setSelectedBackgroundView:blueColorView];
+    
+    [cell setSelectedBackgroundView:blueColorView];
+    [cell assignCard:[cardsInPlay objectAtIndex:[indexPath item]]];
+    return cell;
+}
+
+-(void)handleValidSetEventFromCollectionView:(UICollectionView*) collectionView
+{
+    [gameModel processAndReturnSolvedSet];
+    NSArray* selectedItems = [collectionView indexPathsForSelectedItems];
+    
+    
+    //    [self.collectionView performBatchUpdates:^{
+    //        [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+    //        [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+    //    } completion:nil];
+    
+}
+
+-(void)handleInvalidSetEventFromCollectionView:(UICollectionView*) collectionView
+{
+    
+}
+
+-(void)checkForAdditionalCards
+{
+    if ([gameModel cardsRemainingInDesk] == 0 || [gameModel definitelyASet]) {
+        [addCardsButton setEnabled:NO];
+    }
+        
+}
+
+// referenced from
 // http://stackoverflow.com/questions/3041256/basic-iphone-timer-example
 
 - (NSTimer*)createTimer:(SEL)receiver
@@ -96,7 +169,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
         int seconds = gameTimerSeconds % 60;
     
         NSString *timerTitle;
-        timerTitle = [NSString stringWithFormat:@"Time: %i:%02d", minutes, seconds];
+        timerTitle = [NSString stringWithFormat:@"%i:%02d", minutes, seconds];
     
         [gameTimerLabel setTitle:timerTitle];
     }
@@ -134,41 +207,13 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (bool)updateGameTimerCriteria
 {
-    return ([self isViewLoaded] && [self .view window]);
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return TSSTARTING_SIZE;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    TSCardCellView* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCellID" forIndexPath:indexPath];
-    
-    UIView* blueColorView = [[UIView alloc] init];
-    [blueColorView setBackgroundColor:[UIColor blueColor]];
-    [cell setSelectedBackgroundView:blueColorView];
-    
-    [cell setSelectedBackgroundView:blueColorView];
-    [cell assignCard:[cardsInPlay objectAtIndex:[indexPath item]]];
-    return cell;
+    return ([self isViewLoaded] && [self.view window]);
 }
 
 - (void)updateStatsButton
 {
     int cardsLeft = [gameModel cardsRemainingInDesk] + [cardsInPlay count];
     [statsButton setTitle:[NSString stringWithFormat:@"%d", cardsLeft]];
-}
-
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-//    [self.collectionView performBatchUpdates:^{
-//        [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-//        [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-//    } completion:nil];
 }
 
 @end
