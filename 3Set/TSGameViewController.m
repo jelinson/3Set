@@ -76,7 +76,24 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    static int count = 0;
+    ++count;
     TSCardCellView* selectedCell = (TSCardCellView*) [collectionView cellForItemAtIndexPath:indexPath];
+    
+    [UIView transitionWithView:collectionView duration:.5 options:UIViewAnimationCurveLinear animations:^{
+        
+        //any animateable attribute here.
+        
+        selectedCell.frame = CGRectMake(4, 14, 30, 300);
+        
+    } completion:^(BOOL finished) {
+        nil;
+    }];
+    
+    if (count == 2)
+        [collectionView reloadData];
+    
+    /**
     TSCardModel* selectedCard = [selectedCell card];
     TSGameModelReturnCode result = [gameModel addToWorkingSet:selectedCard];
 
@@ -92,11 +109,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
         case TSGameModelIncompleteSet:
             return;
     }
-    
-    //    [self.collectionView performBatchUpdates:^{
-    //        [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-    //        [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-    //    } completion:nil];
+    **/
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
