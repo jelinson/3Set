@@ -11,15 +11,10 @@
 
 @implementation TSGameViewLayout
 
-//const int TSREG_CELL_H = 100;
-//const int TSREG_CELL_W = 75;
-//const int TSREG_ROW_SPACING = 12;
-//const int TSREG_COL_SPACING = 6;
-//const int TSREG_CELLS_PER_ROW = 3;
-const int TSREG_CELL_H = 80;
-const int TSREG_CELL_W = 65;
-const int TSREG_ROW_SPACING = 8;
-const int TSREG_COL_SPACING = 4;
+const int TSREG_CELL_H = 100;
+const int TSREG_CELL_W = 75;
+const int TSREG_ROW_SPACING = 12;
+const int TSREG_COL_SPACING = 6;
 const int TSREG_CELLS_PER_ROW = 3;
 
 const int TSSM_CELL_H = 50;
