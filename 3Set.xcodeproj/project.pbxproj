@@ -21,6 +21,7 @@
 		C62BA85D1768943400F6142B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA85C1768943400F6142B /* GameKit.framework */; };
 		C62BA8641768ACD100F6142B /* green_diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8631768ACD100F6142B /* green_diamond.png */; };
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
+		C6919D02176F9B8100DBA83B /* TSGameViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C6919D01176F9B8100DBA83B /* TSGameViewLayout.m */; };
 		C6E4ED6D176C782C00D1F009 /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E4ED6C176C782C00D1F009 /* shuffle.png */; };
 		C6E4ED70176C7AB300D1F009 /* TSGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */; };
 		C6E4ED74176C86F800D1F009 /* TSGeneralStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED73176C86F700D1F009 /* TSGeneralStatsViewController.m */; };
@@ -53,6 +54,8 @@
 		C62BA85C1768943400F6142B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		C62BA8631768ACD100F6142B /* green_diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_diamond.png; sourceTree = "<group>"; };
 		C62BA8651768AD2F00F6142B /* triplet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triplet.png; sourceTree = "<group>"; };
+		C6919D00176F9B8100DBA83B /* TSGameViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameViewLayout.h; sourceTree = "<group>"; };
+		C6919D01176F9B8100DBA83B /* TSGameViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameViewLayout.m; sourceTree = "<group>"; };
 		C6E4ED6C176C782C00D1F009 /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle.png; sourceTree = "<group>"; };
 		C6E4ED6E176C7AB300D1F009 /* TSGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameViewController.h; sourceTree = "<group>"; };
 		C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameViewController.m; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 		C62BA83F1768940900F6142B /* 3Set */ = {
 			isa = PBXGroup;
 			children = (
+				C6919D00176F9B8100DBA83B /* TSGameViewLayout.h */,
+				C6919D01176F9B8100DBA83B /* TSGameViewLayout.m */,
 				C6E4ED71176C7AC000D1F009 /* VCs */,
 				C6FE9F6A17691D3700E0980B /* Model */,
 				C62BA85E17689C8900F6142B /* Img */,
@@ -279,6 +284,7 @@
 				C6E4ED74176C86F800D1F009 /* TSGeneralStatsViewController.m in Sources */,
 				C6E4ED77176C89C300D1F009 /* TSPlayerStatsViewController.m in Sources */,
 				C6E4ED7A176CBA1700D1F009 /* TSCardCellView.m in Sources */,
+				C6919D02176F9B8100DBA83B /* TSGameViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
