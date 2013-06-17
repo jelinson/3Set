@@ -15,6 +15,7 @@ const int TSALL_DIFFERENT_MASK = 0b111;
 @implementation TSCardModel
 
 @synthesize attributes = _attributes;
+@synthesize indexInGameBoard = _indexInGameBoard;
 
 -(id)initWithValues:(NSArray *)values
 {

@@ -26,5 +26,6 @@ extern const int TSSET_SIZE;
 -(void)addCard:(TSCardModel*) card;
 -(bool)isFull;
 -(bool)removeCard:(TSCardModel*) card;
+-(NSMutableArray*)sortedIndicesInGameBoardOfSet;
 
 @end

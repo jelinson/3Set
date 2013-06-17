@@ -28,10 +28,11 @@ extern const int TSNEXT_CARDS_SIZE;
 @property (atomic, strong, readonly) NSMutableArray* _solved;
 @property (atomic, strong, readonly) NSMutableArray* _board;
 @property (atomic, strong, readonly) TSSetModel* _workingSet;
+@property (atomic, strong, readonly) NSMutableArray* _lastSetIndices;
 
 -(id)init;
 -(NSArray*)deal;
--(NSArray*)dealNextCards;
+-(NSArray*)dealNextCardsExtra:(BOOL)extra;
 -(bool)hasMoreCards;
 -(bool)definitelyASet;
 -(TSGameModelReturnCode)addToWorkingSet:(TSCardModel*) card;

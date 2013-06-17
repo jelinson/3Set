@@ -32,7 +32,7 @@ const int TSSET_SIZE = 3;
 -(void)addCard:(TSCardModel *)card
 {
     if (![self isFull]) {
-        _cards[_count] = [card copy];
+        _cards[_count] = card;
         ++_count;
         
         if ([self isFull]) {
@@ -48,9 +48,11 @@ const int TSSET_SIZE = 3;
     // TODO: possible error when checking for equality
     if ([_cards containsObject:card]) {
         [_cards removeObject:card];
+        --_count;
         return true;
-    } else
+    } else {
         return false;
+    }
 }
 
 -(bool)isFull
@@ -80,6 +82,18 @@ const int TSSET_SIZE = 3;
         }
     }
     _isValid = true;
+}
+
+-(NSMutableArray*)sortedIndicesInGameBoardOfSet
+{
+    assert(_isValid);
+    NSMutableArray* indices = [NSMutableArray arrayWithCapacity:TSSET_SIZE];
+    
+    for (TSCardModel* card in _cards) {
+        [indices addObject:[NSNumber numberWithInt:[card indexInGameBoard]]];
+    }
+    [indices sortUsingSelector:@selector(compare:)];
+    return indices;
 }
 
 @end

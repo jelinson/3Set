@@ -29,6 +29,7 @@ extern const int TSN_ATTRIBUTE_TYPES;
 @interface TSCardModel : NSObject
 
 @property (atomic, strong, readwrite) NSMutableArray* attributes;
+@property (atomic, assign) uint indexInGameBoard;
     
 -(id)initWithValues:(NSArray*) values;
 -(TSAttributeValue)getValueOfAttribute:(TSAttributeType) type;

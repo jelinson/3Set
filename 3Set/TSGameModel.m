@@ -14,7 +14,7 @@ const int TSNEXT_CARDS_SIZE = 3;
 
 @implementation TSGameModel
 
-@synthesize _deck, _solved, _board, _workingSet;
+@synthesize _deck, _solved, _board, _workingSet, _lastSetIndices;
 
 -(id)init
 {
@@ -34,17 +34,28 @@ const int TSNEXT_CARDS_SIZE = 3;
 -(NSArray*)deal
 {
     for (int i = 0; i < TSSTARTING_SIZE; ++i) {
-        [_board addObject:[self nextCardFromDeck]];
+        TSCardModel* card = [self nextCardFromDeck];
+        [card setIndexInGameBoard:[_board count]];
+        [_board addObject:card];
     }
     return _board;
 }
 
--(NSArray*)dealNextCards
+-(NSArray*)dealNextCardsExtra:(BOOL)extra
 {
     NSMutableArray* nextCards = [NSMutableArray arrayWithCapacity:TSNEXT_CARDS_SIZE];
-    for (int i = 0; i < TSNEXT_CARDS_SIZE; ++i) {
+    for (int i = 0; i < MIN(TSNEXT_CARDS_SIZE, [_deck count]); ++i) {
         TSCardModel* card = [self nextCardFromDeck];
-        [_board addObject:card];
+        if (extra) {
+            [card setIndexInGameBoard:[_board count]];
+            [_board addObject:card];
+        } else {
+            assert([_lastSetIndices count] > 0);
+            int replacementIndex = [[_lastSetIndices objectAtIndex:0] intValue];
+            [card setIndexInGameBoard:replacementIndex];
+            [_board insertObject:card atIndex:replacementIndex];
+            [_lastSetIndices removeObjectAtIndex:0];
+        }
         [nextCards addObject:card];
     }
     return nextCards;
@@ -91,9 +102,15 @@ const int TSNEXT_CARDS_SIZE = 3;
         NSLog(@"WARNING: Requesting solved set when current set is invalid");
         return nil;
     }
-    
-    TSSetModel* savedSolvedSet = [_workingSet copy];
+
+    TSSetModel* savedSolvedSet = _workingSet;
     [_solved addObject:savedSolvedSet];
+    _lastSetIndices = [_workingSet sortedIndicesInGameBoardOfSet];
+    
+    for (TSCardModel* card in [_workingSet cards]) {
+        [_board removeObject:card];
+    }
+    
     _workingSet = nil;
     
     return savedSolvedSet;
@@ -114,6 +131,7 @@ const int TSNEXT_CARDS_SIZE = 3;
     uint32_t randomIndex = arc4random_uniform([_deck count]);
     TSCardModel* card = [_deck objectAtIndex:randomIndex];
     [_deck removeObjectAtIndex:randomIndex];
+
     return card;
 }
 

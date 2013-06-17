@@ -82,11 +82,11 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
     switch (result) {
         case TSGameModelValidSet:
-            [self handleValidSetEvent];
+            [self handleValidSetEventFromCollectionView:collectionView];
             break;
         
         case TSGameModelInvalidSet:
-            [self handleInvalidSetEvent];
+            [self handleInvalidSetEventFromCollectionView:collectionView];
             break;
             
         case TSGameModelIncompleteSet:
@@ -109,7 +109,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSLog(@"numebrOfItems requested");
+    NSLog([NSString stringWithFormat: @"numebrOfItems requested: %d", [gameModel cardsInPlayCount]]);
     return [gameModel cardsInPlayCount];
 }
 
@@ -129,20 +129,38 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(void)handleValidSetEventFromCollectionView:(UICollectionView*) collectionView
 {
+    NSLog(@"Valid set");
     [gameModel processAndReturnSolvedSet];
     NSArray* selectedItems = [collectionView indexPathsForSelectedItems];
+    NSArray* nextCards = [gameModel dealNextCardsExtra:NO];
     
+    NSMutableArray* indexPathsOfNextCards = [NSMutableArray arrayWithCapacity:[nextCards count]];
+    for (TSCardModel* card in nextCards) {
+        NSIndexPath* indexPathForCard = [NSIndexPath indexPathForItem:[card indexInGameBoard] inSection:0];
+        [indexPathsOfNextCards addObject:indexPathForCard];
+    }
     
-    //    [self.collectionView performBatchUpdates:^{
-    //        [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-    //        [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-    //    } completion:nil];
+    assert([selectedItems count] == [indexPathsOfNextCards count]);
+    NSLog([NSString stringWithFormat:@"Size of changes: %d", [selectedItems count]]);
     
+    [collectionView performBatchUpdates:^{
+        [collectionView deleteItemsAtIndexPaths:selectedItems];
+        [collectionView insertItemsAtIndexPaths:indexPathsOfNextCards];
+    } completion:nil];
+    
+    [self updateStatsButton];
 }
 
 -(void)handleInvalidSetEventFromCollectionView:(UICollectionView*) collectionView
 {
+    NSLog(@"Invalid set");
+    [collectionView performBatchUpdates:^{
+        for (NSIndexPath* ip in [collectionView indexPathsForSelectedItems]) {
+            [collectionView deselectItemAtIndexPath:ip animated:YES];
+        }
+    } completion:nil];
     
+    [gameModel cancelWorkingSet];
 }
 
 -(void)checkForAdditionalCards
@@ -150,7 +168,6 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     if ([gameModel cardsRemainingInDesk] == 0 || [gameModel definitelyASet]) {
         [addCardsButton setEnabled:NO];
     }
-        
 }
 
 // referenced from
