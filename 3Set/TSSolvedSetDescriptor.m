@@ -21,7 +21,7 @@ const int TSNumberOfSolvedSetTypes = 5;
             return @"Three attributes the same, one different";
         case TSSolvedSetTwoDifferent:
             return @"Two attributes the same, two different";
-        case TSSvoledSetThreeDifferent:
+        case TSSolvedSetThreeDifferent:
             return @"One attribute the same, three different";
         case TSSolvedSetAllDifferent:
             return @"All attrbiutes different";

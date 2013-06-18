@@ -57,4 +57,10 @@
     return totalTime / (double) setsFound;
 }
 
+-(int)countForType:(TSSolvedSetDescription)type
+{
+    NSNumber* count = [setTypeCount objectAtIndex:type];
+    return [count intValue];
+}
+
 @end

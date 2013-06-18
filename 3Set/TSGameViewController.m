@@ -131,7 +131,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog([NSString stringWithFormat:@"CellQueried %d", [indexPath item]]);
+    //NSLog([NSString stringWithFormat:@"CellQueried %d", [indexPath item]]);
     TSCardCellView* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCellID" forIndexPath:indexPath];
     
     UIView* blueColorView = [[UIView alloc] init];

@@ -12,7 +12,7 @@ typedef enum {
     TSSolvedSetNoDifferent = 0,
     TSSolvedSetOneDifferent = 1,
     TSSolvedSetTwoDifferent = 2,
-    TSSvoledSetThreeDifferent = 3,
+    TSSolvedSetThreeDifferent = 3,
     TSSolvedSetAllDifferent = 4,
 } TSSolvedSetDescription;
 

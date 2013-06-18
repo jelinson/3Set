@@ -23,5 +23,6 @@
 -(void) processNextSolvedSetProperty:(TSSolvedSetProperties*) properties;
 -(int) computeScore;
 -(double) computeTime;
+-(int) countForType:(TSSolvedSetDescription) type;
 
 @end

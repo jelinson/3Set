@@ -126,14 +126,11 @@ const int TSXSM_SIZE_THRESHOLD = 18;
 
 -(void) prepareLayout
 {
-    NSLog(@"prepareLayout in");
     [self computeTotalLayoutDimensions];
-    NSLog(@"prepareLayout out");
 }
 
 -(void) computeTotalLayoutDimensions
 {
-    NSLog(@"computeTotalLayoutDimensions in");
     layoutW = 0;
     layoutH = 0;
     
@@ -149,23 +146,19 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     layoutW += ((nCols - 1) * currentColSpacing);
     
     NSLog([NSString stringWithFormat:@"Layout size: %d x %d", layoutW, layoutH]);
-    NSLog(@"computeTotalLayoutDimensions out");
 }
 
 -(CGSize)collectionViewContentSize
 {
-    NSLog(@"collectionViewContentSize in");
     CGSize layoutSize;
     layoutSize.height = (CGFloat) layoutH;
     layoutSize.width =  (CGFloat) layoutW;
     NSLog([NSString stringWithFormat:@"Layout size: %.2lf x %.2lf", layoutSize.width, layoutSize.height]);
-    NSLog(@"collectionViewContentSize out");
     return layoutSize;
 }
 
 -(NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    NSLog(@"layoutAttributesForElementsInRect in");
     NSMutableArray* attributesForElementsInRect = [NSMutableArray array];
     for (int i = 0; i < nCardsInPlay; ++i) {
         NSIndexPath* indexPath = [NSIndexPath indexPathForItem:i inSection:0];
@@ -174,7 +167,6 @@ const int TSXSM_SIZE_THRESHOLD = 18;
             [attributesForElementsInRect addObject:attributes];
         }
     }
-    NSLog(@"layoutAttributesForElementsInRect out");
     return attributesForElementsInRect;
 }
 
