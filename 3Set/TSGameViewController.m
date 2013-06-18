@@ -199,8 +199,8 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 -(void)processStatsForSolvedSet:(TSSetModel*)solvedSet
 {
     int time = gameTimerSeconds - lastSetTimeStamp;
-    int playerId = 1; // TODO: multiplayer
-    TSSolvedSetProperties* properties = [[TSSolvedSetProperties alloc] initWithPlayer:1 andTime:time andDesciption:[solvedSet desc]];
+    int playerId = 0; // TODO: multiplayer
+    TSSolvedSetProperties* properties = [[TSSolvedSetProperties alloc] initWithPlayer:playerId andTime:time andDesciption:[solvedSet desc]];
     [gameStats processSolvedSet:properties];
 }
 

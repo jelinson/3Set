@@ -40,7 +40,7 @@
 {
     ++totalSetsFound;
     int player = [setProperties _playerID];
-    [[playerStats objectAtIndex:player] processSolvedSet:setProperties];
+    [[playerStats objectAtIndex:player] processNextSolvedSetProperty:setProperties];
 }
 
 -(int) playerScore:(int)playerId
