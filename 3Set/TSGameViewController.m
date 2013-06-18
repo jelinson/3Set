@@ -22,12 +22,13 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 @synthesize lastSetTimeStamp;
 
 @synthesize statsButton, addCardsButton;
-@synthesize gameModel, cardsInPlay;
+@synthesize gameModel, gameStats, cardsInPlay;
 
 - (void)initializeGame;
 {
     // TODO changed hard-coded number of players
-    gameModel = [TSGameModel getGameInstanceForPlayers:1];
+    gameModel = [TSGameModel getGameInstanceForPlayers:1 andClear:YES];
+    gameStats = [gameModel gameStats];
     cardsInPlay = [gameModel deal];
     assert([cardsInPlay count] == TSSTARTING_SIZE);
 }
@@ -87,6 +88,12 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     [self interfaceInteractionEvent];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Prepare for segue called");
+    [gameStats updateJustInTime:gameTimerSeconds andCards:[cardsInPlay count] + [gameModel cardsRemainingInDesk]];
+}
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TSCardCellView* selectedCell = (TSCardCellView*) [collectionView cellForItemAtIndexPath:indexPath];
@@ -141,7 +148,9 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     NSLog(@"Valid set");
     BOOL addCards = [gameModel cardsInPlayCount] <= TSSTARTING_SIZE;
     
-    [gameModel processAndReturnSolvedSet];
+    TSSetModel* solvedSet = [gameModel processAndReturnSolvedSet];
+    [self processStatsForSolvedSet:solvedSet];
+    
     NSArray* selectedItems = [collectionView indexPathsForSelectedItems];
     
     NSMutableArray* indexPathsOfNextCards = [NSMutableArray array];
@@ -163,6 +172,8 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
         [collectionView deleteItemsAtIndexPaths:selectedItems];
         [collectionView insertItemsAtIndexPaths:indexPathsOfNextCards];
     } completion:nil];
+    
+    lastSetTimeStamp = gameTimerSeconds;
 }
 
 -(void)handleInvalidSetEventFromCollectionView:(UICollectionView*) collectionView
@@ -185,6 +196,14 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     [self checkForAdditionalCards];
 }
 
+-(void)processStatsForSolvedSet:(TSSetModel*)solvedSet
+{
+    int time = gameTimerSeconds - lastSetTimeStamp;
+    int playerId = 1; // TODO: multiplayer
+    TSSolvedSetProperties* properties = [[TSSolvedSetProperties alloc] initWithPlayer:1 andTime:time andDesciption:[solvedSet desc]];
+    [gameStats processSolvedSet:properties];
+}
+
 -(void)checkForAdditionalCards
 {
     if ([gameModel cardsRemainingInDesk] == 0 || [gameModel definitelyASet]) {
@@ -204,11 +223,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 {
     if ([self updateGameTimerCriteria]) {
         gameTimerSeconds += 1;
-        int minutes = gameTimerSeconds / 60;
-        int seconds = gameTimerSeconds % 60;
-    
-        NSString *timerTitle;
-        timerTitle = [NSString stringWithFormat:@"%i:%02d", minutes, seconds];
+        NSString *timerTitle = [TSUtil formatTimeFromSeconds:gameTimerSeconds];
     
         [gameTimerLabel setTitle:timerTitle];
     }

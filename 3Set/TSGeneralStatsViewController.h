@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TSGameModel.h"
+#import "TSGameStatsModel.h"
+#import "TSPlayerStatsModel.h"
 
 @interface TSGeneralStatsViewController : UITableViewController
 
@@ -15,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *possibleSetsLeftDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *player1ScoreDetailLabel;
+
+@property (weak) TSGameStatsModel* gameStats;
 
 
 

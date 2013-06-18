@@ -34,7 +34,7 @@
 -(void) processNextSolvedSetProperty:(TSSolvedSetProperties*) properties
 {
     assert([properties _playerID] == pid);
-    int time = [properties _timeToFind];
+    double time = (double) [properties _timeToFind];
     fastestTime = MIN(fastestTime, time);
     slowestTime = MAX(slowestTime, time);
     totalTime += time;
@@ -46,4 +46,15 @@
     NSNumber* incrementedCount = [NSNumber numberWithInt:([count intValue] + 1)];
     [setTypeCount replaceObjectAtIndex:type withObject:incrementedCount];
 }
+
+-(int) computeScore
+{
+    return setsFound - falseAlarms;
+}
+
+-(double) computeTime
+{
+    return totalTime / (double) setsFound;
+}
+
 @end

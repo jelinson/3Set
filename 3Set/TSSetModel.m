@@ -21,7 +21,6 @@ const int TSSET_SIZE = 3;
     self = [super init];
     if (self) {
         _count = 0;
-        _nDifferent = 0;
         _cards = [NSMutableArray arrayWithCapacity:TSSET_SIZE];
     } else {
         NSLog(@"ERROR: Could not initialize SetModel");

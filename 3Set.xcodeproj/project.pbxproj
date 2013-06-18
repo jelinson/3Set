@@ -23,6 +23,7 @@
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
 		C653BAF71770CC2B00C3B82B /* TSGameStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */; };
 		C653BAFA1770CEE100C3B82B /* TSPlayerStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAF91770CEE100C3B82B /* TSPlayerStatsModel.m */; };
+		C653BAFE1770E6BE00C3B82B /* TSUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAFD1770E6BE00C3B82B /* TSUtil.m */; };
 		C6919D02176F9B8100DBA83B /* TSGameViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C6919D01176F9B8100DBA83B /* TSGameViewLayout.m */; };
 		C6E4ED6D176C782C00D1F009 /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E4ED6C176C782C00D1F009 /* shuffle.png */; };
 		C6E4ED70176C7AB300D1F009 /* TSGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */; };
@@ -60,6 +61,8 @@
 		C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameStatsModel.m; sourceTree = "<group>"; };
 		C653BAF81770CEE100C3B82B /* TSPlayerStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPlayerStatsModel.h; sourceTree = "<group>"; };
 		C653BAF91770CEE100C3B82B /* TSPlayerStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSPlayerStatsModel.m; sourceTree = "<group>"; };
+		C653BAFC1770E6BE00C3B82B /* TSUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSUtil.h; sourceTree = "<group>"; };
+		C653BAFD1770E6BE00C3B82B /* TSUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSUtil.m; sourceTree = "<group>"; };
 		C6919D00176F9B8100DBA83B /* TSGameViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameViewLayout.h; sourceTree = "<group>"; };
 		C6919D01176F9B8100DBA83B /* TSGameViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameViewLayout.m; sourceTree = "<group>"; };
 		C6E4ED6C176C782C00D1F009 /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle.png; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		C62BA83F1768940900F6142B /* 3Set */ = {
 			isa = PBXGroup;
 			children = (
+				C653BAFB1770E6B300C3B82B /* Common */,
 				C6919D00176F9B8100DBA83B /* TSGameViewLayout.h */,
 				C6919D01176F9B8100DBA83B /* TSGameViewLayout.m */,
 				C6E4ED71176C7AC000D1F009 /* VCs */,
@@ -172,6 +176,15 @@
 				C62BA8511768940900F6142B /* MainStoryboard.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C653BAFB1770E6B300C3B82B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C653BAFC1770E6BE00C3B82B /* TSUtil.h */,
+				C653BAFD1770E6BE00C3B82B /* TSUtil.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		C6E4ED71176C7AC000D1F009 /* VCs */ = {
@@ -297,6 +310,7 @@
 				C6919D02176F9B8100DBA83B /* TSGameViewLayout.m in Sources */,
 				C653BAF71770CC2B00C3B82B /* TSGameStatsModel.m in Sources */,
 				C653BAFA1770CEE100C3B82B /* TSPlayerStatsModel.m in Sources */,
+				C653BAFE1770E6BE00C3B82B /* TSUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

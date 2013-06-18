@@ -43,4 +43,9 @@
     [[playerStats objectAtIndex:player] processSolvedSet:setProperties];
 }
 
+-(int) playerScore:(int)playerId
+{
+    return  [[playerStats objectAtIndex:playerId] computeScore];
+}
+
 @end

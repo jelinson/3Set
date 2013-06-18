@@ -14,6 +14,9 @@
 
 @implementation TSGeneralStatsViewController
 
+@synthesize totalSetsFoundDetailLabel, cardsLeftDetailLabel, possibleSetsLeftDetailLabel, timeDetailLabel, player1ScoreDetailLabel;
+@synthesize gameStats;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -23,22 +26,31 @@
     return self;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    [self loadStats];
+    [self fillInStats];
+}
+
+-(void)loadStats
+{
+    // TODO dynamic number of players
+    gameStats = [[TSGameModel getGameInstanceForPlayers:1 andClear:NO] gameStats];
+}
+
+-(void) fillInStats
+{
+    [totalSetsFoundDetailLabel setText:[NSString stringWithFormat:@"%d", [gameStats totalSetsFound]]];
+    [cardsLeftDetailLabel setText:[NSString stringWithFormat:@"%d", [gameStats cardsLeft]]];
+    [possibleSetsLeftDetailLabel setText:[NSString stringWithFormat:@"%d", ([gameStats cardsLeft] / TSSET_SIZE)]];
+    [timeDetailLabel setText:[TSUtil formatTimeFromSeconds:[gameStats time]]];
+    [player1ScoreDetailLabel setText:[NSString stringWithFormat:@"%d", [gameStats playerScore:0]]];
 }
 
 - (IBAction)onDoneClick:(id)sender

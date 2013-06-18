@@ -21,5 +21,7 @@
 
 -(id) initWithId:(int) playerID;
 -(void) processNextSolvedSetProperty:(TSSolvedSetProperties*) properties;
+-(int) computeScore;
+-(double) computeTime;
 
 @end

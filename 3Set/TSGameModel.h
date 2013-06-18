@@ -31,6 +31,7 @@ extern const int TSNEXT_CARDS_SIZE;
 @property (atomic, strong, readonly) NSMutableArray* _board;
 @property (atomic, strong, readonly) TSSetModel* _workingSet;
 @property (atomic, strong, readonly) NSMutableArray* _lastSetIndices;
+@property (strong, readwrite) TSGameStatsModel* gameStats;
 
 -(id)initForPlayers:(int) numberOfPlayers;
 -(NSArray*)deal;
@@ -43,9 +44,9 @@ extern const int TSNEXT_CARDS_SIZE;
 -(void)cancelWorkingSet;
 -(int)cardsRemainingInDesk;
 -(int)cardsInPlayCount;
--(TSGameStatsModel*)gameStats;
+
 
 +(NSMutableArray*)generateDeck;
-+(TSGameModel*)getGameInstanceForPlayers:(int) nPlayers;
++(TSGameModel*)getGameInstanceForPlayers:(int) nPlayers andClear:(BOOL)clear;
 
 @end

@@ -22,5 +22,6 @@
 -(id) initForPlayers:(int)numberOfPlayers;
 -(void) updateJustInTime:(int)seconds andCards:(int)nCards;
 -(void) processSolvedSet:(TSSolvedSetProperties*) setProperties;
+-(int) playerScore:(int) playerId;
 
 @end
