@@ -16,6 +16,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 @implementation TSGameViewController
 
+@synthesize gameViewLayout;
 @synthesize gameTimer, gameTimerLabel, gameTimerSeconds;
 @synthesize interfaceInteractionTimer, interfaceInteractionTimerSeconds;
 @synthesize lastSetTimeStamp;
@@ -67,6 +68,17 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 - (IBAction)onAddCardsClick:(id)sender
 {
     [self interfaceInteractionEvent];
+    
+    NSArray* nextCards = [gameModel dealNextCardsExtra:YES];
+    NSMutableArray* indexPathsOfNextCards = [NSMutableArray arrayWithCapacity:[nextCards count]];
+    for (TSCardModel* card in nextCards) {
+        NSIndexPath* indexPathForCard = [NSIndexPath indexPathForItem:[card indexInGameBoard] inSection:0];
+        [indexPathsOfNextCards addObject:indexPathForCard];
+    }
+    [[self collectionView] performBatchUpdates:^{
+        [[self collectionView] insertItemsAtIndexPaths:indexPathsOfNextCards];
+    } completion:nil];
+    [self processMoreCards];
 }
 
 - (IBAction)onViewClick:(id)sender
@@ -143,8 +155,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
         [collectionView deleteItemsAtIndexPaths:selectedItems];
         [collectionView insertItemsAtIndexPaths:indexPathsOfNextCards];
     } completion:nil];
-    
-    [self updateStatsButton];
+    [self processMoreCards];
 }
 
 -(void)handleInvalidSetEventFromCollectionView:(UICollectionView*) collectionView
@@ -157,6 +168,14 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     } completion:nil];
     
     [gameModel cancelWorkingSet];
+}
+
+-(void)processMoreCards
+{
+    [gameViewLayout updateBoardSize:[gameModel cardsInPlayCount]];
+    
+    [self updateStatsButton];
+    [self checkForAdditionalCards];
 }
 
 -(void)checkForAdditionalCards
@@ -225,7 +244,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)updateStatsButton
 {
-    int cardsLeft = [gameModel cardsRemainingInDesk] + [cardsInPlay count];
+    int cardsLeft = [gameModel cardsRemainingInDesk];
     [statsButton setTitle:[NSString stringWithFormat:@"%d", cardsLeft]];
 }
 

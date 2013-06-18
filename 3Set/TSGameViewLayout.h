@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-extern const int TSREG_CELL_H, TSREG_CELL_W, TSREG_ROW_SPACING, TSREG_COL_SPACING, TSREG_CARDS_PER_ROW;
-extern const int TSSM_CELL_H, TSSM_CELL_W, TSSM_ROW_SPACING, TSSM_COL_SPACING, TSSM_CARDS_PER_ROW;
-extern const int TSXSM_CELL_H, TSXSM_CELL_W, TSXSM_ROW_SPACING, TSXSM_COL_SPACING, TSXSM_CARDS_PER_ROW;
+extern const int TSREG_CELL_H, TSREG_CELL_W, TSREG_CARDS_PER_ROW;
+extern const int TSSM_CELL_H, TSSM_CELL_W, TSSM_CARDS_PER_ROW;
+extern const int TSXSM_CELL_H, TSXSM_CELL_W, TSXSM_CARDS_PER_ROW;
 extern const int TSSM_SIZE_THRESHOLD;
 extern const int TSXSM_SIZE_THRESHOLD;
 
@@ -24,8 +24,9 @@ typedef enum {
 
 @property (assign) int nCardsInPlay;
 @property (assign) int currentCellH, currentCellW, currentCellPerRow, currentRowSpacing, currentColSpacing;
+@property (assign) int nRows, nCols;
 @property (assign) int topSectionInsert, bottomSectionInsert, leftSectionInsert, rightSectionInsert;
-@property (assign) int layoutW, layoutH;
+@property (assign) int layoutW, layoutH, screenW, screenH;
 
 @property (assign) TSBOARD_SIZE_T boardSize;
 

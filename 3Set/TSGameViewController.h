@@ -10,6 +10,7 @@
 #import "TSGameModel.h"
 #import "TSCardModel.h"
 #import "TSCardCellView.h"
+#import "TSGameViewLayout.h"
 
 extern const int TSINTERACTION_TIME_THRESHOLD;
 
@@ -18,6 +19,7 @@ extern const int TSINTERACTION_TIME_THRESHOLD;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *gameTimerLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *statsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addCardsButton;
+@property (weak, nonatomic) IBOutlet TSGameViewLayout *gameViewLayout;
 
 @property (strong) NSTimer* gameTimer;
 @property (strong) NSTimer* interfaceInteractionTimer;

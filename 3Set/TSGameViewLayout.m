@@ -13,29 +13,24 @@
 
 const int TSREG_CELL_H = 100;
 const int TSREG_CELL_W = 75;
-const int TSREG_ROW_SPACING = 12;
-const int TSREG_COL_SPACING = 6;
 const int TSREG_CELLS_PER_ROW = 3;
 
-const int TSSM_CELL_H = 50;
-const int TSSM_CELL_W = 38;
-const int TSSM_ROW_SPACING = 8;
-const int TSSM_COL_SPACING = 4;
-const int TSSM_CELLS_PER_ROW = 4;
+const int TSSM_CELL_H = 75;
+const int TSSM_CELL_W = 57;
+const int TSSM_CELLS_PER_ROW = 3;
 
-const int TSXSM_CELL_H = 25;
-const int TSXSM_CELL_W = 19;
-const int TSXSM_ROW_SPACING = 6;
-const int TSXSM_COL_SPACING = 4;
-const int TSXSM_CELLS_PER_ROW = 4;
+const int TSXSM_CELL_H = 65;
+const int TSXSM_CELL_W = 49;
+const int TSXSM_CELLS_PER_ROW = 3;
 
 const int TSSM_SIZE_THRESHOLD = 15;
 const int TSXSM_SIZE_THRESHOLD = 18;
 
 @synthesize currentCellH, currentCellW, currentCellPerRow, currentRowSpacing, currentColSpacing;
+@synthesize nRows, nCols;
 @synthesize nCardsInPlay, boardSize;
 @synthesize topSectionInsert, bottomSectionInsert, leftSectionInsert, rightSectionInsert;
-@synthesize layoutH, layoutW;
+@synthesize layoutH, layoutW, screenW, screenH;
 
 - (id)init
 {
@@ -62,6 +57,10 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     leftSectionInsert = 20;
     rightSectionInsert = 20;
     
+    CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
+    screenW = (int) screenRect.size.width;
+    screenH = (int) screenRect.size.height;
+    
     // todo: this should probably be passed (in cases such as resuming cases)
     // let's see if this will handle it all
     [self updateBoardSize:TSSTARTING_SIZE];
@@ -73,30 +72,39 @@ const int TSXSM_SIZE_THRESHOLD = 18;
         NSLog(@"Using xsm size");
         currentCellH = TSXSM_CELL_H;
         currentCellW = TSXSM_CELL_W;
-        currentRowSpacing = TSXSM_ROW_SPACING;
-        currentColSpacing = TSXSM_COL_SPACING;
         currentCellPerRow = TSXSM_CELLS_PER_ROW;
     } else if (boardSize == TSSM_SIZE) {
         NSLog(@"Using sm size");
         currentCellH = TSSM_CELL_H;
         currentCellW = TSSM_CELL_W;
-        currentRowSpacing = TSSM_ROW_SPACING;
-        currentColSpacing = TSSM_COL_SPACING;
         currentCellPerRow = TSSM_CELLS_PER_ROW;
     } else {
         NSLog(@"Using reg size");
         currentCellH = TSREG_CELL_H;
         currentCellW = TSREG_CELL_W;
-        currentRowSpacing = TSREG_ROW_SPACING;
-        currentColSpacing = TSREG_COL_SPACING;
         currentCellPerRow = TSREG_CELLS_PER_ROW;
     }
+    [self calculateGridDimensions];
+    [self calculateCurrentSpacing];
+}
+
+-(void) calculateGridDimensions
+{
+    // ceil
+    nRows = (nCardsInPlay + currentCellPerRow - 1) / currentCellPerRow;
+    nCols = currentCellPerRow;
+}
+
+-(void) calculateCurrentSpacing
+{
+    currentColSpacing = MAX(0, (screenW - leftSectionInsert - rightSectionInsert - nCols * currentCellW) / (nCols - 1));
+    currentRowSpacing = MAX(0, (screenH - topSectionInsert - bottomSectionInsert - nRows * currentCellH) / (nRows - 1));
 }
 
 -(BOOL) updateBoardSize:(int) newSize
 {
     int tmpOldNCardsInPlay = self.nCardsInPlay;
-    self.nCardsInPlay = newSize;
+    nCardsInPlay = newSize;
     TSBOARD_SIZE_T newSizeType;
     
     if (newSize >= TSXSM_SIZE_THRESHOLD) {
@@ -107,7 +115,7 @@ const int TSXSM_SIZE_THRESHOLD = 18;
         newSizeType = TSREG_SIZE;
     }
     
-    if (newSizeType != self.boardSize || tmpOldNCardsInPlay == 0) {
+    if (newSizeType != self.boardSize || tmpOldNCardsInPlay != nCardsInPlay || tmpOldNCardsInPlay == 0) {
         NSLog([NSString stringWithFormat: @"Board size changed from %d to %d", tmpOldNCardsInPlay, newSize]);
         self.boardSize = newSizeType;
         [self updateCurrentDimensions];
@@ -133,10 +141,6 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     layoutH += bottomSectionInsert;
     layoutW += rightSectionInsert;
     layoutW += leftSectionInsert;
-
-    // ceil
-    int nRows = (nCardsInPlay + currentCellPerRow + 1) / currentCellPerRow;
-    int nCols = currentCellPerRow;
     
     layoutH += (nRows * currentCellH);
     layoutH += ((nRows - 1) * currentRowSpacing);
