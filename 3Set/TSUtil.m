@@ -12,6 +12,9 @@
 
 +(NSString*) formatTimeFromSeconds:(int)totalSeconds
 {
+    if (totalSeconds == INFINITY)
+        return @"N/A";
+    
     int minutes = totalSeconds / 60;
     int seconds = totalSeconds % 60;
     return [NSString stringWithFormat:@"%i:%02d", minutes, seconds];

@@ -60,9 +60,9 @@
     [self fillInLabel:setsFoundDetailLabel withInt:[playerStats setsFound]];
     [self fillInLabel:falseAlarmsDetailLabel withInt:[playerStats falseAlarms]];
     [self fillInLabel:scoreDetailLabel withInt:[playerStats computeScore]];
-    [self fillInLabel:avgTimeDetailLabel withTime:[playerStats computeTime]];
-    [self fillInLabel:fastestDetailLabel withTime:[playerStats fastestTime]];
-    [self fillInLabel:slowestDetailLabel withInt:[playerStats slowestTime]];
+    [self fillInLabel:avgTimeDetailLabel withDoubleTime:[playerStats computeTime]];
+    [self fillInLabel:fastestDetailLabel withDoubleTime:[playerStats fastestTime]];
+    [self fillInLabel:slowestDetailLabel withDoubleTime:[playerStats slowestTime]];
     
 //    for (TSSolvedSetDescription type = TSSolvedSetNoDifferent;
 //         type <= TSSolvedSetAllDifferent; ++type) {
@@ -85,6 +85,15 @@
 -(void) fillInLabel:(UILabel*)label withTime:(int)seconds
 {
     [label setText:[TSUtil formatTimeFromSeconds:seconds]];
+}
+
+-(void) fillInLabel:(UILabel*)label withDoubleTime:(double) seconds
+{
+    if (isnan(seconds) || seconds == INFINITY || seconds == 0) {
+        [label setText:@"N/A"];
+    } else {
+        [self fillInLabel:label withTime: (int) seconds];
+    }
 }
 
 - (IBAction)onDoneClick:(id)sender
