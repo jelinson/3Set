@@ -138,24 +138,30 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 -(void)handleValidSetEventFromCollectionView:(UICollectionView*) collectionView
 {
     NSLog(@"Valid set");
+    BOOL addCards = [gameModel cardsInPlayCount] <= TSSTARTING_SIZE;
+    
     [gameModel processAndReturnSolvedSet];
     NSArray* selectedItems = [collectionView indexPathsForSelectedItems];
-    NSArray* nextCards = [gameModel dealNextCardsExtra:NO];
     
-    NSMutableArray* indexPathsOfNextCards = [NSMutableArray arrayWithCapacity:[nextCards count]];
-    for (TSCardModel* card in nextCards) {
-        NSIndexPath* indexPathForCard = [NSIndexPath indexPathForItem:[card indexInGameBoard] inSection:0];
-        [indexPathsOfNextCards addObject:indexPathForCard];
+    NSMutableArray* indexPathsOfNextCards = [NSMutableArray array];
+    
+    if (addCards) {
+        NSLog(@"Adding cards");
+        NSArray* nextCards = [gameModel dealNextCardsExtra:NO];
+        for (TSCardModel* card in nextCards) {
+            NSIndexPath* indexPathForCard = [NSIndexPath indexPathForItem:[card indexInGameBoard] inSection:0];
+            [indexPathsOfNextCards addObject:indexPathForCard];
+        }
+    } else {
+        NSLog(@"Not adding cards");
     }
-    
-    assert([selectedItems count] == [indexPathsOfNextCards count]);
-    NSLog([NSString stringWithFormat:@"Size of changes: %d", [selectedItems count]]);
+
+    [self processMoreCards];
     
     [collectionView performBatchUpdates:^{
         [collectionView deleteItemsAtIndexPaths:selectedItems];
         [collectionView insertItemsAtIndexPaths:indexPathsOfNextCards];
     } completion:nil];
-    [self processMoreCards];
 }
 
 -(void)handleInvalidSetEventFromCollectionView:(UICollectionView*) collectionView

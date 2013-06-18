@@ -105,6 +105,7 @@ const int TSNEXT_CARDS_SIZE = 3;
 
     TSSetModel* savedSolvedSet = _workingSet;
     [_solved addObject:savedSolvedSet];
+    
     _lastSetIndices = [_workingSet sortedIndicesInGameBoardOfSet];
     
     for (TSCardModel* card in [_workingSet cards]) {
