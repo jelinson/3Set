@@ -35,7 +35,6 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)viewDidLoad
 {
-    NSLog(@"ViewDidLoad");
     [super viewDidLoad];
     [self initializeGame];
     self.collectionView.allowsMultipleSelection = YES;
@@ -43,14 +42,11 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"ViewWillAppear");
     [super viewWillAppear:animated];
-
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    NSLog(@"ViewDidAppear");
     gameTimer = [self createTimer:@selector(gameTimerTicked:)];
     [self showNavigationElements];
 }
@@ -90,7 +86,6 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"Prepare for segue called");
     [gameStats updateJustInTime:gameTimerSeconds andCards:[cardsInPlay count] + [gameModel cardsRemainingInDesk]];
 }
 
@@ -125,7 +120,6 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSLog([NSString stringWithFormat: @"numebrOfItems requested: %d", [gameModel cardsInPlayCount]]);
     return [gameModel cardsInPlayCount];
 }
 

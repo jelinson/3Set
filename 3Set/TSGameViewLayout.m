@@ -144,8 +144,6 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     
     layoutW += (nCols * currentCellW);
     layoutW += ((nCols - 1) * currentColSpacing);
-    
-    NSLog([NSString stringWithFormat:@"Layout size: %d x %d", layoutW, layoutH]);
 }
 
 -(CGSize)collectionViewContentSize
@@ -153,7 +151,6 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     CGSize layoutSize;
     layoutSize.height = (CGFloat) layoutH;
     layoutSize.width =  (CGFloat) layoutW;
-    NSLog([NSString stringWithFormat:@"Layout size: %.2lf x %.2lf", layoutSize.width, layoutSize.height]);
     return layoutSize;
 }
 
