@@ -11,7 +11,7 @@
 
 @implementation TSPlayerStatsModel
 
-@synthesize pid, setsFound, falseAlarms, setTypeCount, fastestTime, avgTime, slowestTime;
+@synthesize pid, setsFound, falseAlarms, setTypeCount, fastestTime, totalTime, slowestTime;
 
 -(id) initWithId:(int) playerID
 {
@@ -19,14 +19,31 @@
     if (self) {
         pid = playerID;
         setTypeCount = [NSMutableArray arrayWithCapacity:TSNumberOfSolvedSetTypes];
+        for (int i = 0; i < TSNumberOfSolvedSetTypes; ++i) {
+            NSNumber* zero = [NSNumber numberWithInt:0];
+            [setTypeCount addObject:zero];
+        }
+        
         fastestTime = INFINITY;
     } else {
         NSLog(@"ERROR: Could not initialize PlayerStatsModel");
     }
-}
--(void) processNextSolvedSetProperty:(TSSolvedSetProperties*) properties
-{
-    // todo: implement meee
+    return self;
 }
 
+-(void) processNextSolvedSetProperty:(TSSolvedSetProperties*) properties
+{
+    assert([properties _playerID] == pid);
+    int time = [properties _timeToFind];
+    fastestTime = MIN(fastestTime, time);
+    slowestTime = MAX(slowestTime, time);
+    totalTime += time;
+    ++setsFound;
+    
+    // this feels sketchy
+    int type = [properties _desc];
+    NSNumber* count = [setTypeCount objectAtIndex:type];
+    NSNumber* incrementedCount = [NSNumber numberWithInt:([count intValue] + 1)];
+    [setTypeCount replaceObjectAtIndex:type withObject:incrementedCount];
+}
 @end

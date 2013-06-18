@@ -16,7 +16,7 @@
 @property (readonly, assign) int falseAlarms;
 @property (readonly, retain) NSMutableArray* setTypeCount;
 @property (readonly, assign) double fastestTime;
-@property (readonly, assign) double avgTime;
+@property (readonly, assign) double totalTime;
 @property (readonly, assign) double slowestTime;
 
 -(id) initWithId:(int) playerID;

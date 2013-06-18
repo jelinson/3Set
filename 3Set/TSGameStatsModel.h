@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TSPlayerStatsModel.h"
+#import "TSSolvedSetProperties.h"
 
 @interface TSGameStatsModel : NSObject
 
@@ -18,5 +20,7 @@
 @property (assign) int time;
 
 -(id) initForPlayers:(int)numberOfPlayers;
+-(void) updateJustInTime:(int)seconds andCards:(int)nCards;
+-(void) processSolvedSet:(TSSolvedSetProperties*) setProperties;
 
 @end
