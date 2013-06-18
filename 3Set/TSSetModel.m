@@ -12,6 +12,7 @@ const int TSSET_SIZE = 3;
 
 @implementation TSSetModel
 
+@synthesize desc;
 @synthesize isValid = _isValid;
 @synthesize cards = _cards;
 
@@ -62,7 +63,7 @@ const int TSSET_SIZE = 3;
 
 -(void)validate
 {
-    _nDifferent = 0;
+    desc = TSSolvedSetNoDifferent;
     for (int i = 0; i < TSN_ATTRIBUTE_TYPES; ++i) {
         int same = ~0;
         int diff = 0;
@@ -72,7 +73,7 @@ const int TSSET_SIZE = 3;
         }
         
         if (diff == TSALL_DIFFERENT_MASK) {
-            _nDifferent +=1;
+            desc +=1;
             continue;
         } else if (same) {
             continue;

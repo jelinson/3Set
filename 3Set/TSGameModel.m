@@ -14,9 +14,9 @@ const int TSNEXT_CARDS_SIZE = 3;
 
 @implementation TSGameModel
 
-@synthesize _deck, _solved, _board, _workingSet, _lastSetIndices;
+@synthesize _nPlayers, _deck, _solved, _board, _workingSet, _lastSetIndices;
 
--(id)init
+-(id)initForPlayers:(int) numberOfPlayers
 {
     self = [super init];
     if (self) {
@@ -24,6 +24,8 @@ const int TSNEXT_CARDS_SIZE = 3;
         _solved = [NSMutableArray array];
         _board = [NSMutableArray array];
         _workingSet = [[TSSetModel alloc] init];
+        _nPlayers = numberOfPlayers;
+        _gameStats = [[TSGameStatsModel alloc] initForPlayers:_nPlayers];
     } else {
         NSLog(@"ERROR: Could not initialize game object");
     }
@@ -178,6 +180,25 @@ const int TSNEXT_CARDS_SIZE = 3;
     }
     
     return deck;
+}
+
++(TSGameModel*)getGameInstanceForPlayers:(int) nPlayers
+{
+    static TSGameModel* currentSinglePlayerGame = nil;
+    static TSGameModel* currentMultiplayerGame = nil;
+    
+    if (nPlayers == 1) {
+        if (currentSinglePlayerGame == nil) {
+            currentSinglePlayerGame = [[TSGameModel alloc] initForPlayers:nPlayers];
+        }
+        return currentSinglePlayerGame;
+    } else {
+        NSLog(@"WARNING: Multiplayer not yet implemented");
+        if (currentMultiplayerGame == nil) {
+            currentMultiplayerGame = [[TSGameModel alloc] initForPlayers:nPlayers];
+        }
+        return currentMultiplayerGame;
+    }
 }
 
 @end

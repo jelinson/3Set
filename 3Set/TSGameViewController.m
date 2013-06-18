@@ -26,7 +26,8 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)initializeGame;
 {
-    gameModel = [[TSGameModel alloc] init];
+    // TODO changed hard-coded number of players
+    gameModel = [TSGameModel getGameInstanceForPlayers:1];
     cardsInPlay = [gameModel deal];
     assert([cardsInPlay count] == TSSTARTING_SIZE);
 }

@@ -10,4 +10,12 @@
 
 @interface TSGeneralStatsViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *totalSetsFoundDetailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cardsLeftDetailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *possibleSetsLeftDetailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeDetailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *player1ScoreDetailLabel;
+
+
+
 @end

@@ -21,6 +21,8 @@
 		C62BA85D1768943400F6142B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA85C1768943400F6142B /* GameKit.framework */; };
 		C62BA8641768ACD100F6142B /* green_diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8631768ACD100F6142B /* green_diamond.png */; };
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
+		C653BAF71770CC2B00C3B82B /* TSGameStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */; };
+		C653BAFA1770CEE100C3B82B /* TSPlayerStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAF91770CEE100C3B82B /* TSPlayerStatsModel.m */; };
 		C6919D02176F9B8100DBA83B /* TSGameViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C6919D01176F9B8100DBA83B /* TSGameViewLayout.m */; };
 		C6E4ED6D176C782C00D1F009 /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E4ED6C176C782C00D1F009 /* shuffle.png */; };
 		C6E4ED70176C7AB300D1F009 /* TSGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */; };
@@ -54,6 +56,10 @@
 		C62BA85C1768943400F6142B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		C62BA8631768ACD100F6142B /* green_diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_diamond.png; sourceTree = "<group>"; };
 		C62BA8651768AD2F00F6142B /* triplet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triplet.png; sourceTree = "<group>"; };
+		C653BAF51770CC2B00C3B82B /* TSGameStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameStatsModel.h; sourceTree = "<group>"; };
+		C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameStatsModel.m; sourceTree = "<group>"; };
+		C653BAF81770CEE100C3B82B /* TSPlayerStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPlayerStatsModel.h; sourceTree = "<group>"; };
+		C653BAF91770CEE100C3B82B /* TSPlayerStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSPlayerStatsModel.m; sourceTree = "<group>"; };
 		C6919D00176F9B8100DBA83B /* TSGameViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameViewLayout.h; sourceTree = "<group>"; };
 		C6919D01176F9B8100DBA83B /* TSGameViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameViewLayout.m; sourceTree = "<group>"; };
 		C6E4ED6C176C782C00D1F009 /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle.png; sourceTree = "<group>"; };
@@ -188,6 +194,10 @@
 		C6FE9F6A17691D3700E0980B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C653BAF51770CC2B00C3B82B /* TSGameStatsModel.h */,
+				C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */,
+				C653BAF81770CEE100C3B82B /* TSPlayerStatsModel.h */,
+				C653BAF91770CEE100C3B82B /* TSPlayerStatsModel.m */,
 				C6FE9F6B17691D5900E0980B /* TSSetModel.h */,
 				C6FE9F6C17691D5900E0980B /* TSSetModel.m */,
 				C6FE9F6E1769204B00E0980B /* TSCardModel.h */,
@@ -285,6 +295,8 @@
 				C6E4ED77176C89C300D1F009 /* TSPlayerStatsViewController.m in Sources */,
 				C6E4ED7A176CBA1700D1F009 /* TSCardCellView.m in Sources */,
 				C6919D02176F9B8100DBA83B /* TSGameViewLayout.m in Sources */,
+				C653BAF71770CC2B00C3B82B /* TSGameStatsModel.m in Sources */,
+				C653BAFA1770CEE100C3B82B /* TSPlayerStatsModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

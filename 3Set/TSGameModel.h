@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TSSetModel.h"
 #import "TSCardModel.h"
+#import "TSGameStatsModel.h"
 #import "TSSolvedSetProperties.h"
 #import "TSSolvedSetDescriptor.h"
 
@@ -24,13 +25,14 @@ extern const int TSNEXT_CARDS_SIZE;
 
 @interface TSGameModel : NSObject
 
+@property (assign) int _nPlayers;
 @property (atomic, strong, readonly) NSMutableArray* _deck;
 @property (atomic, strong, readonly) NSMutableArray* _solved;
 @property (atomic, strong, readonly) NSMutableArray* _board;
 @property (atomic, strong, readonly) TSSetModel* _workingSet;
 @property (atomic, strong, readonly) NSMutableArray* _lastSetIndices;
 
--(id)init;
+-(id)initForPlayers:(int) numberOfPlayers;
 -(NSArray*)deal;
 -(NSArray*)dealNextCardsExtra:(BOOL)extra;
 -(bool)hasMoreCards;
@@ -41,7 +43,9 @@ extern const int TSNEXT_CARDS_SIZE;
 -(void)cancelWorkingSet;
 -(int)cardsRemainingInDesk;
 -(int)cardsInPlayCount;
+-(TSGameStatsModel*)gameStats;
 
 +(NSMutableArray*)generateDeck;
++(TSGameModel*)getGameInstanceForPlayers:(int) nPlayers;
 
 @end

@@ -11,6 +11,7 @@
 #import "TSCardModel.h"
 #import "TSCardCellView.h"
 #import "TSGameViewLayout.h"
+#import "TSGameStatsModel.h"
 
 extern const int TSINTERACTION_TIME_THRESHOLD;
 
@@ -28,6 +29,7 @@ extern const int TSINTERACTION_TIME_THRESHOLD;
 @property (assign) int lastSetTimeStamp;
 
 @property (strong) TSGameModel* gameModel;
+@property (weak) TSGameStatsModel* gameStats;
 @property (weak) NSArray* cardsInPlay;
 
 @end

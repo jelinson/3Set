@@ -14,11 +14,10 @@ extern const int TSSET_SIZE;
 
 @interface TSSetModel : NSObject {
     int _count;
-    int _nDifferent;
 }
 
 @property (atomic, assign) bool isValid;
-@property (atomic, assign) TSSolvedSetDescription _desc;
+@property (atomic, assign) TSSolvedSetDescription desc;
 @property (atomic, strong, readonly) NSMutableArray* cards;
 
 

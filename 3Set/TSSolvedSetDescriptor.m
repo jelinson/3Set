@@ -10,6 +10,8 @@
 
 @implementation TSSolvedSetDescriptor
 
+const int TSNumberOfSolvedSetTypes = 5;
+
 +(NSString*)generateSolvedSetDescription:(TSSolvedSetDescription)description
 {
     switch (description) {
