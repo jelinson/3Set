@@ -23,5 +23,6 @@
 -(void) updateJustInTime:(int)seconds andCards:(int)nCards;
 -(void) processSolvedSet:(TSSolvedSetProperties*) setProperties;
 -(int) playerScore:(int) playerId;
+-(void) processInvalidSet:(int) playerID;
 
 @end

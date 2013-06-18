@@ -186,6 +186,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     } completion:nil];
     
     [gameModel cancelWorkingSet];
+    [gameStats processInvalidSet:0];
 }
 
 -(void)processMoreCards
@@ -208,6 +209,8 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 {
     if ([gameModel cardsRemainingInDesk] == 0 || [gameModel definitelyASet]) {
         [addCardsButton setEnabled:NO];
+    } else {
+        [addCardsButton setEnabled:YES];
     }
 }
 

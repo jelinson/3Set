@@ -48,4 +48,9 @@
     return  [[playerStats objectAtIndex:playerId] computeScore];
 }
 
+-(void) processInvalidSet:(int)playerID
+{
+    [[playerStats objectAtIndex:playerID] addFalseAlarm];
+}
+
 @end

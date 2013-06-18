@@ -63,4 +63,9 @@
     return [count intValue];
 }
 
+-(void) addFalseAlarm
+{
+    ++falseAlarms;
+}
+
 @end

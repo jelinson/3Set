@@ -24,5 +24,6 @@
 -(int) computeScore;
 -(double) computeTime;
 -(int) countForType:(TSSolvedSetDescription) type;
+-(void) addFalseAlarm;
 
 @end
