@@ -45,30 +45,30 @@ const double TSSettingManager_BGR_B_DEFAULT = 0.941;
 
 }
 
--(void) updateNumberOfCards:(int) newPerference
+-(void) updateNumberOfCards:(int) newPreference
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    numberOfCards = newPerference;
-    NSNumber* preferenceWrapper = [NSNumber numberWithInt:newPerference];
+    numberOfCards = newPreference;
+    NSNumber* preferenceWrapper = [NSNumber numberWithInt:newPreference];
     [defaults setValue:preferenceWrapper forKey:@"NumberOfCards"];
     
 }
--(void) updateHideFrameDuringPlay:(BOOL) newPerference
+-(void) updateHideFrameDuringPlay:(BOOL) newPreference
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    hideFrameDuringPlay = newPerference;
-    NSNumber* preferenceWrapper = [NSNumber numberWithBool:newPerference];
+    hideFrameDuringPlay = newPreference;
+    NSNumber* preferenceWrapper = [NSNumber numberWithBool:newPreference];
     [defaults setValue:preferenceWrapper forKey:@"HideFrameDuringPlay"];
 }
 
--(void) updateBackgroundColor:(TSNamedColor *)newPerference
+-(void) updateBackgroundColor:(TSNamedColor *)newPreference
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    backgroundColor = [newPerference color];
-    colorName = [newPerference name];
+    backgroundColor = [newPreference color];
+    colorName = [newPreference name];
     
     CGFloat backgroundR, backgroundB, backgroundG, alpha;
-    [[newPerference color] getRed:&backgroundR green:&backgroundG blue:&backgroundB alpha:&alpha];
+    [[newPreference color] getRed:&backgroundR green:&backgroundG blue:&backgroundB alpha:&alpha];
     
     [defaults setValue:[NSNumber numberWithDouble:backgroundR] forKey:@"BackgroundRed"];
     [defaults setValue:[NSNumber numberWithDouble:backgroundG] forKey:@"BackgroundGreen"];

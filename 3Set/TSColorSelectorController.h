@@ -11,5 +11,6 @@
 @interface TSColorSelectorController : UITableViewController
 
 @property (assign) int selectedRow;
+@property (strong, readonly) NSMutableArray* colorSelection;
 
 @end

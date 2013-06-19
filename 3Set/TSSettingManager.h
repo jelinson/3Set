@@ -17,9 +17,9 @@
 @property (strong, readonly) NSString* colorName;
 
 -(id) init;
--(void) updateNumberOfCards:(int) newPerference;
--(void) updateHideFrameDuringPlay:(BOOL) newPerference;
--(void) updateBackgroundColor:(TSNamedColor*) newPerference;
+-(void) updateNumberOfCards:(int) newPreference;
+-(void) updateHideFrameDuringPlay:(BOOL) newPreference;
+-(void) updateBackgroundColor:(TSNamedColor*) newPreference;
 
 +(id) getSettingManagerInstance;
 +(void) registerAppDefaults;
