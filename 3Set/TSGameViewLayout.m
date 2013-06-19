@@ -65,6 +65,7 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     // todo: this should probably be passed (in cases such as resuming cases)
     // let's see if this will handle it all
     [self updateBoardSize: [[TSSettingManager getSettingManagerInstance] numberOfCards]];
+    
 }
 
 -(void) updateCurrentDimensions;
@@ -167,6 +168,7 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     }
     return attributesForElementsInRect;
 }
+
 
 -(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {

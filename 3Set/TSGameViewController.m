@@ -23,6 +23,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 @synthesize interfaceInteractionTimer, interfaceInteractionTimerSeconds;
 @synthesize lastSetTimeStamp;
 @synthesize backgroundControl;
+@synthesize setStatusLabel;
 
 @synthesize statsButton, addCardsButton;
 @synthesize gameModel, gameStats, cardsInPlay;
@@ -48,6 +49,9 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     UIColor* backgroundColor = [[TSSettingManager getSettingManagerInstance] backgroundColor];
     [backgroundControl setBackgroundColor:backgroundColor];
     hideFrameDuringPlay = [[TSSettingManager getSettingManagerInstance] hideFrameDuringPlay];
+    [setStatusLabel setFrame: CGRectMake(0, 0, [[UIScreen mainScreen] applicationFrame].size.width, 55)];
+    [setStatusLabel setText:@"Test"];
+    [setStatusLabel setAlpha:0.0];
     [super viewWillAppear:animated];
 }
 
@@ -182,6 +186,9 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
     [self processMoreCards];
     
+    [setStatusLabel setText:@"Set!"];
+    [self setStatusFadeInOut];
+    
     [collectionView performBatchUpdates:^{
         [collectionView deleteItemsAtIndexPaths:selectedItems];
         [collectionView insertItemsAtIndexPaths:indexPathsOfNextCards];
@@ -193,6 +200,11 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 -(void)handleInvalidSetEventFromCollectionView:(UICollectionView*) collectionView
 {
     NSLog(@"Invalid set");
+    
+    [setStatusLabel setText:@"Not A Set!"];
+    
+    [self setStatusFadeInOut];
+    
     [collectionView performBatchUpdates:^{
         for (NSIndexPath* ip in [collectionView indexPathsForSelectedItems]) {
             [collectionView deselectItemAtIndexPath:ip animated:YES];
@@ -257,6 +269,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)interfaceInteractionEvent
 {
+    [setStatusLabel setAlpha:0.0];
     [self showNavigationElements];
 }
 
@@ -289,6 +302,31 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 {
     int cardsLeft = [gameModel cardsRemainingInDesk];
     [statsButton setTitle:[NSString stringWithFormat:@"%d", cardsLeft]];
+}
+
+- (void)setStatusFadeInOut
+{
+    [UIView animateWithDuration:0.2
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionAllowUserInteraction
+                     animations:^(void)
+     {
+         [setStatusLabel setAlpha:1.0];
+     }
+                     completion:^(BOOL finished)
+     {
+         if (finished)
+         {
+             [UIView animateWithDuration:0.4
+                                   delay:0.5
+                                 options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionAllowUserInteraction
+                              animations:^(void)
+              {
+                  [setStatusLabel setAlpha:0.0];
+              }
+                              completion:^(BOOL finished){ }];
+         }
+     }];
 }
 
 @end
