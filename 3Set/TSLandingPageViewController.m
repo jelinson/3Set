@@ -7,6 +7,7 @@
 //
 
 #import "TSLandingPageViewController.h"
+#import "TSSettingManager.h"
 
 @interface TSLandingPageViewController ()
 
@@ -55,6 +56,7 @@
 {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self.navigationController setToolbarHidden:YES animated:animated];
+    self.view.backgroundColor = [[TSSettingManager getSettingManagerInstance] backgroundColor];
     [super viewWillAppear:animated];
 }
 

@@ -7,19 +7,20 @@
 //
 
 #import "TSGameModel.h"
+#import "TSSettingManager.h"
 
-const int TSSTARTING_SIZE = 12;
 const int TSMAX_BOARD_SIZE = 21;
 const int TSNEXT_CARDS_SIZE = 3;
 
 @implementation TSGameModel
 
-@synthesize _nPlayers, _deck, _solved, _board, _workingSet, _lastSetIndices, gameStats;
+@synthesize _nPlayers, startingSize, _deck, _solved, _board, _workingSet, _lastSetIndices, gameStats;
 
 -(id)initForPlayers:(int) numberOfPlayers
 {
     self = [super init];
     if (self) {
+        startingSize = [[TSSettingManager getSettingManagerInstance] numberOfCards];
         _deck = [TSGameModel generateDeck];
         _solved = [NSMutableArray array];
         _board = [NSMutableArray array];
@@ -35,7 +36,7 @@ const int TSNEXT_CARDS_SIZE = 3;
 
 -(NSArray*)deal
 {
-    for (int i = 0; i < TSSTARTING_SIZE; ++i) {
+    for (int i = 0; i < startingSize; ++i) {
         TSCardModel* card = [self nextCardFromDeck];
         [card setIndexInGameBoard:[_board count]];
         [_board addObject:card];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C60C4F9C1771264C0055745A /* TSSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C60C4F9B1771264C0055745A /* TSSettingManager.m */; };
+		C60C4F9F177135410055745A /* TSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60C4F9E177135410055745A /* TSSettingsViewController.m */; };
 		C62BA83A1768940900F6142B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA8391768940900F6142B /* UIKit.framework */; };
 		C62BA83C1768940900F6142B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA83B1768940900F6142B /* Foundation.framework */; };
 		C62BA83E1768940900F6142B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA83D1768940900F6142B /* CoreGraphics.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		C60C4F9A1771264C0055745A /* TSSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingManager.h; sourceTree = "<group>"; };
 		C60C4F9B1771264C0055745A /* TSSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingManager.m; sourceTree = "<group>"; };
+		C60C4F9D177135410055745A /* TSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingsViewController.h; sourceTree = "<group>"; };
+		C60C4F9E177135410055745A /* TSSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingsViewController.m; sourceTree = "<group>"; };
 		C62BA8361768940900F6142B /* 3Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62BA8391768940900F6142B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C62BA83B1768940900F6142B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,6 +198,8 @@
 		C6E4ED71176C7AC000D1F009 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				C60C4F9D177135410055745A /* TSSettingsViewController.h */,
+				C60C4F9E177135410055745A /* TSSettingsViewController.m */,
 				C6E4ED78176CBA1700D1F009 /* TSCardCellView.h */,
 				C6E4ED79176CBA1700D1F009 /* TSCardCellView.m */,
 				C6E4ED75176C89C300D1F009 /* TSPlayerStatsViewController.h */,
@@ -317,6 +322,7 @@
 				C653BAFA1770CEE100C3B82B /* TSPlayerStatsModel.m in Sources */,
 				C653BAFE1770E6BE00C3B82B /* TSUtil.m in Sources */,
 				C60C4F9C1771264C0055745A /* TSSettingManager.m in Sources */,
+				C60C4F9F177135410055745A /* TSSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

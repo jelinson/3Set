@@ -19,13 +19,13 @@ typedef enum {
     TSGameModelInvalidSet = 2,
 } TSGameModelReturnCode;
 
-extern const int TSSTARTING_SIZE;
 extern const int TSMAX_BOARD_SIZE;
 extern const int TSNEXT_CARDS_SIZE;
 
 @interface TSGameModel : NSObject
 
 @property (assign) int _nPlayers;
+@property (assign, readonly) int startingSize;
 @property (atomic, strong, readonly) NSMutableArray* _deck;
 @property (atomic, strong, readonly) NSMutableArray* _solved;
 @property (atomic, strong, readonly) NSMutableArray* _board;

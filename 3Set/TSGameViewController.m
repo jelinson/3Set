@@ -7,6 +7,7 @@
 //
 
 #import "TSGameViewController.h"
+#import "TSSettingManager.h"
 
 const int TSINTERACTION_TIME_THRESHOLD = 2;
 
@@ -16,6 +17,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 @implementation TSGameViewController
 
+@synthesize hideFrameDuringPlay;
 @synthesize gameViewLayout;
 @synthesize gameTimer, gameTimerLabel, gameTimerSeconds;
 @synthesize interfaceInteractionTimer, interfaceInteractionTimerSeconds;
@@ -30,7 +32,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     gameModel = [TSGameModel getGameInstanceForPlayers:1 andClear:YES];
     gameStats = [gameModel gameStats];
     cardsInPlay = [gameModel deal];
-    assert([cardsInPlay count] == TSSTARTING_SIZE);
+    assert([cardsInPlay count] == [gameModel startingSize]);
 }
 
 - (void)viewDidLoad
@@ -42,6 +44,8 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.view.backgroundColor = [[TSSettingManager getSettingManagerInstance] backgroundColor];
+    hideFrameDuringPlay = [[TSSettingManager getSettingManagerInstance] hideFrameDuringPlay];
     [super viewWillAppear:animated];
 }
 
@@ -140,7 +144,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 -(void)handleValidSetEventFromCollectionView:(UICollectionView*) collectionView
 {
     NSLog(@"Valid set");
-    BOOL addCards = [gameModel cardsInPlayCount] <= TSSTARTING_SIZE;
+    BOOL addCards = [gameModel cardsInPlayCount] <= [gameModel startingSize];
     
     TSSetModel* solvedSet = [gameModel processAndReturnSolvedSet];
     [self processStatsForSolvedSet:solvedSet];
@@ -251,7 +255,11 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 {
     interfaceInteractionTimerSeconds = 0;
     [interfaceInteractionTimer invalidate];
-    interfaceInteractionTimer = [self createTimer:@selector(interfaceInteractionTimerTicked:)];
+    
+    if (hideFrameDuringPlay) {
+        interfaceInteractionTimer = [self createTimer:@selector(interfaceInteractionTimerTicked:)];
+    }
+    
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
     [[self navigationController] setToolbarHidden:NO animated:NO];
 }

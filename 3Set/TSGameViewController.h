@@ -17,6 +17,7 @@ extern const int TSINTERACTION_TIME_THRESHOLD;
 
 @interface TSGameViewController : UICollectionViewController
 
+@property (assign) BOOL hideFrameDuringPlay;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *gameTimerLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *statsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addCardsButton;

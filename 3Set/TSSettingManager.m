@@ -11,7 +11,7 @@
 @implementation TSSettingManager
 
 const int TSSettingManager_N_CARDS_DEFAULT = 12;
-const BOOL TSSettingManager_HIDE_FRAME_DEFAULT = YES;
+const BOOL TSSettingManager_HIDE_FRAME_DEFAULT = NO;
 const double TSSettingManager_BGR_R_DEFAULT = 1.0;
 const double TSSettingManager_BGR_G_DEFAULT = 0.996;
 const double TSSettingManager_BGR_B_DEFAULT = 0.941;
