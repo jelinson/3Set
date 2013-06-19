@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C60C4F9C1771264C0055745A /* TSSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C60C4F9B1771264C0055745A /* TSSettingManager.m */; };
 		C62BA83A1768940900F6142B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA8391768940900F6142B /* UIKit.framework */; };
 		C62BA83C1768940900F6142B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA83B1768940900F6142B /* Foundation.framework */; };
 		C62BA83E1768940900F6142B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA83D1768940900F6142B /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C60C4F9A1771264C0055745A /* TSSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingManager.h; sourceTree = "<group>"; };
+		C60C4F9B1771264C0055745A /* TSSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingManager.m; sourceTree = "<group>"; };
 		C62BA8361768940900F6142B /* 3Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62BA8391768940900F6142B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C62BA83B1768940900F6142B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -181,6 +184,8 @@
 		C653BAFB1770E6B300C3B82B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C60C4F9A1771264C0055745A /* TSSettingManager.h */,
+				C60C4F9B1771264C0055745A /* TSSettingManager.m */,
 				C653BAFC1770E6BE00C3B82B /* TSUtil.h */,
 				C653BAFD1770E6BE00C3B82B /* TSUtil.m */,
 			);
@@ -311,6 +316,7 @@
 				C653BAF71770CC2B00C3B82B /* TSGameStatsModel.m in Sources */,
 				C653BAFA1770CEE100C3B82B /* TSPlayerStatsModel.m in Sources */,
 				C653BAFE1770E6BE00C3B82B /* TSUtil.m in Sources */,
+				C60C4F9C1771264C0055745A /* TSSettingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,14 @@
 //
 
 #import "TSAppDelegate.h"
+#import "TSSettingManager.h"
 
 @implementation TSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [TSSettingManager registerAppDefaults];
+    [TSSettingManager getSettingManagerInstance];
     return YES;
 }
 							
