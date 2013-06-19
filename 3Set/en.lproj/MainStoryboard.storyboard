@@ -239,11 +239,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="wh8-en-Pmu" secondAttribute="trailing" constant="18" id="1rm-T9-dj8"/>
                                             <constraint firstItem="8Hy-O8-ysK" firstAttribute="baseline" secondItem="wh8-en-Pmu" secondAttribute="baseline" type="default" id="8ri-7n-GNA"/>
                                             <constraint firstItem="wh8-en-Pmu" firstAttribute="centerY" secondItem="uSi-jm-Qz3" secondAttribute="centerY" type="default" id="BkX-6M-8V0"/>
                                             <constraint firstItem="8Hy-O8-ysK" firstAttribute="leading" secondItem="uSi-jm-Qz3" secondAttribute="leading" constant="20" type="default" id="GFs-ju-9tU"/>
                                             <constraint firstItem="8Hy-O8-ysK" firstAttribute="centerY" secondItem="wh8-en-Pmu" secondAttribute="centerY" type="default" id="h45-42-f92"/>
-                                            <constraint firstAttribute="trailing" secondItem="wh8-en-Pmu" secondAttribute="trailing" constant="21" id="qgz-eY-XF6"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zoh-GL-Huz" detailTextLabel="MXr-D2-9G8" style="IBUITableViewCellStyleValue1" id="3KA-aa-D1g">
@@ -1007,6 +1007,8 @@
         <class className="TSSettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TSSettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="hideFrameValueChanged:"/>
+                <relationship kind="action" name="numberOfCardsValueChanged:"/>
                 <relationship kind="outlet" name="backgroundColorLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="hideFrameSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="numberOfCardsSelector" candidateClass="UISegmentedControl"/>
@@ -1020,6 +1022,9 @@
         </class>
         <class className="UICollectionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

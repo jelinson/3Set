@@ -50,7 +50,10 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     [backgroundControl setBackgroundColor:backgroundColor];
     hideFrameDuringPlay = [[TSSettingManager getSettingManagerInstance] hideFrameDuringPlay];
     [setStatusLabel setFrame: CGRectMake(0, 0, [[UIScreen mainScreen] applicationFrame].size.width, 55)];
-    [setStatusLabel setText:@"Test"];
+    
+    if ([[[TSSettingManager getSettingManagerInstance] colorName] isEqualToString:@"Black"])
+        setStatusLabel.textColor = [UIColor whiteColor];
+    
     [setStatusLabel setAlpha:0.0];
     [super viewWillAppear:animated];
 }
