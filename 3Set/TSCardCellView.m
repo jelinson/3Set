@@ -12,6 +12,7 @@
 
 @synthesize cardLabel;
 @synthesize card = _card;
+@synthesize imgSrc, imgPath, imgView;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -25,16 +26,16 @@
 -(void)assignCard:(TSCardModel *)card
 {
     _card = card;
-    [cardLabel setText:[self.card toString]];
-}
+    [cardLabel setHidden:YES];
+    //[cardLabel setText:[self.card toString]];
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+    imgPath = @"green_diamond_por.png";
+    imgSrc = [UIImage imageNamed:imgPath];
+    [imgView setImage:imgSrc];
+
+    
+    //[imgView setFrame: [self frame]];
+    //imgView.contentMode = UIViewContentModeScaleToFill;
 }
-*/
 
 @end

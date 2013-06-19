@@ -16,6 +16,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *cardLabel;
 @property (weak, readwrite) TSCardModel* card;
 
+@property (strong) UIImage* imgSrc;
+@property (strong) NSString* imgPath;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+
 -(void)assignCard:(TSCardModel *)card;
 
 @end

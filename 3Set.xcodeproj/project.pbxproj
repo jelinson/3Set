@@ -25,6 +25,7 @@
 		C62BA8641768ACD100F6142B /* green_diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8631768ACD100F6142B /* green_diamond.png */; };
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
 		C639B0961772055E003EC66A /* TSNamedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C639B0951772055E003EC66A /* TSNamedColor.m */; };
+		C639B0981772434D003EC66A /* green_diamond_por.png in Resources */ = {isa = PBXBuildFile; fileRef = C639B0971772434D003EC66A /* green_diamond_por.png */; };
 		C653BAF71770CC2B00C3B82B /* TSGameStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */; };
 		C653BAFA1770CEE100C3B82B /* TSPlayerStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAF91770CEE100C3B82B /* TSPlayerStatsModel.m */; };
 		C653BAFE1770E6BE00C3B82B /* TSUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAFD1770E6BE00C3B82B /* TSUtil.m */; };
@@ -69,6 +70,7 @@
 		C62BA8651768AD2F00F6142B /* triplet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triplet.png; sourceTree = "<group>"; };
 		C639B0941772055E003EC66A /* TSNamedColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSNamedColor.h; sourceTree = "<group>"; };
 		C639B0951772055E003EC66A /* TSNamedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNamedColor.m; sourceTree = "<group>"; };
+		C639B0971772434D003EC66A /* green_diamond_por.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_diamond_por.png; sourceTree = "<group>"; };
 		C653BAF51770CC2B00C3B82B /* TSGameStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameStatsModel.h; sourceTree = "<group>"; };
 		C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameStatsModel.m; sourceTree = "<group>"; };
 		C653BAF81770CEE100C3B82B /* TSPlayerStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPlayerStatsModel.h; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		C62BA85E17689C8900F6142B /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				C639B0971772434D003EC66A /* green_diamond_por.png */,
 				C6E4ED6C176C782C00D1F009 /* shuffle.png */,
 				C62BA8651768AD2F00F6142B /* triplet.png */,
 				C62BA8631768ACD100F6142B /* green_diamond.png */,
@@ -305,6 +308,7 @@
 				C62BA8641768ACD100F6142B /* green_diamond.png in Resources */,
 				C62BA8661768AD2F00F6142B /* triplet.png in Resources */,
 				C6E4ED6D176C782C00D1F009 /* shuffle.png in Resources */,
+				C639B0981772434D003EC66A /* green_diamond_por.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
