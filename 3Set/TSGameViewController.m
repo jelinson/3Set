@@ -177,6 +177,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
         }
     } else {
         NSLog(@"Not adding cards");
+        [gameModel updateCardIndicesForShrinkingBoard];
     }
 
     [self processMoreCards];

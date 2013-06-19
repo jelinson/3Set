@@ -181,6 +181,17 @@ const int TSNEXT_CARDS_SIZE = 3;
     return transformations;
 }
 
+-(void)updateCardIndicesForShrinkingBoard
+{
+    for (int i = 0; i < [_lastSetIndices count]; ++i) {
+        int index = [[_lastSetIndices objectAtIndex:i] intValue];
+        for (; index < [_board count]; ++index) {
+            TSCardModel* cardToUpdate = [_board objectAtIndex:index];
+            --cardToUpdate.indexInGameBoard;
+        }
+    }
+}
+
 +(NSMutableArray*)generateDeck
 {
     NSMutableArray* deck = [NSMutableArray array];
