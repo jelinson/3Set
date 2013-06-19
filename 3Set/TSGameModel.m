@@ -149,6 +149,38 @@ const int TSNEXT_CARDS_SIZE = 3;
     return [_board count];
 }
 
+-(NSArray*)shuffle
+{
+    NSUInteger count = [_board count];
+    
+    // initialize transformations
+    NSMutableArray* transformations = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        [transformations addObject: [NSNumber numberWithInt:-1]];
+    }
+    
+    // shuffle
+    // reference from
+    // http://stackoverflow.com/questions/56648/whats-the-best-way-to-shuffle-an-nsmutablearray
+    
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        NSInteger nElements = count - i;
+        NSInteger n = (arc4random() % nElements) + i;
+        [_board exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+    
+    // get transformation and update cards
+    for (NSUInteger newIndex = 0; newIndex < count; ++newIndex) {
+        TSCardModel* shuffledCard = [_board objectAtIndex:newIndex];
+        NSUInteger originalIndex = [shuffledCard indexInGameBoard];
+        [transformations setObject:[NSNumber numberWithInt:newIndex] atIndexedSubscript:originalIndex];
+        shuffledCard.indexInGameBoard = newIndex;
+    }
+    
+    return transformations;
+}
+
 +(NSMutableArray*)generateDeck
 {
     NSMutableArray* deck = [NSMutableArray array];

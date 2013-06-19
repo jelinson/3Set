@@ -67,6 +67,19 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 - (IBAction)onShuffleCardsClick:(id)sender
 {
     [self interfaceInteractionEvent];
+    
+    NSArray* transformations = [gameModel shuffle];
+    [[self collectionView] performBatchUpdates:^{
+        for (int originalIndex = 0; originalIndex < [cardsInPlay count]; ++originalIndex) {
+            int newIndex = [[transformations objectAtIndex:originalIndex] intValue];
+            
+            NSIndexPath* src = [NSIndexPath indexPathForItem:originalIndex inSection:0];
+            NSIndexPath* dst = [NSIndexPath indexPathForItem:newIndex inSection:0];
+            
+            [[self collectionView] moveItemAtIndexPath:src toIndexPath:dst];
+        }
+    } completion:nil];
+    
 }
 
 - (IBAction)onAddCardsClick:(id)sender

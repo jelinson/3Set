@@ -44,6 +44,7 @@ extern const int TSNEXT_CARDS_SIZE;
 -(void)cancelWorkingSet;
 -(int)cardsRemainingInDesk;
 -(int)cardsInPlayCount;
+-(NSArray*)shuffle;
 
 
 +(NSMutableArray*)generateDeck;
