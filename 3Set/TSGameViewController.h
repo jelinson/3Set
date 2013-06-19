@@ -22,6 +22,7 @@ extern const int TSINTERACTION_TIME_THRESHOLD;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *statsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addCardsButton;
 @property (weak, nonatomic) IBOutlet TSGameViewLayout *gameViewLayout;
+@property (weak, nonatomic) IBOutlet UIControl *backgroundControl;
 
 @property (strong) NSTimer* gameTimer;
 @property (strong) NSTimer* interfaceInteractionTimer;

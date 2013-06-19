@@ -8,6 +8,7 @@
 
 #import "TSLandingPageViewController.h"
 #import "TSSettingManager.h"
+#import "TSNamedColor.h"
 
 @interface TSLandingPageViewController ()
 
@@ -46,10 +47,7 @@
 
 - (void) configureViewController
 {
-//    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
-//    barButton.title = @"Menu";
-//    
-//    self.navigationItem.backBarButtonItem = barButton;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

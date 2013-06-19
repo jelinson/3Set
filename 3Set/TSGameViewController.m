@@ -22,6 +22,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 @synthesize gameTimer, gameTimerLabel, gameTimerSeconds;
 @synthesize interfaceInteractionTimer, interfaceInteractionTimerSeconds;
 @synthesize lastSetTimeStamp;
+@synthesize backgroundControl;
 
 @synthesize statsButton, addCardsButton;
 @synthesize gameModel, gameStats, cardsInPlay;
@@ -44,7 +45,8 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.view.backgroundColor = [[TSSettingManager getSettingManagerInstance] backgroundColor];
+    UIColor* backgroundColor = [[TSSettingManager getSettingManagerInstance] backgroundColor];
+    [backgroundControl setBackgroundColor:backgroundColor];
     hideFrameDuringPlay = [[TSSettingManager getSettingManagerInstance] hideFrameDuringPlay];
     [super viewWillAppear:animated];
 }

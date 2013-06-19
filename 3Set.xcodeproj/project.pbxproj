@@ -24,6 +24,7 @@
 		C62BA85D1768943400F6142B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62BA85C1768943400F6142B /* GameKit.framework */; };
 		C62BA8641768ACD100F6142B /* green_diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8631768ACD100F6142B /* green_diamond.png */; };
 		C62BA8661768AD2F00F6142B /* triplet.png in Resources */ = {isa = PBXBuildFile; fileRef = C62BA8651768AD2F00F6142B /* triplet.png */; };
+		C639B0961772055E003EC66A /* TSNamedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C639B0951772055E003EC66A /* TSNamedColor.m */; };
 		C653BAF71770CC2B00C3B82B /* TSGameStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */; };
 		C653BAFA1770CEE100C3B82B /* TSPlayerStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAF91770CEE100C3B82B /* TSPlayerStatsModel.m */; };
 		C653BAFE1770E6BE00C3B82B /* TSUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C653BAFD1770E6BE00C3B82B /* TSUtil.m */; };
@@ -66,6 +67,8 @@
 		C62BA85C1768943400F6142B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		C62BA8631768ACD100F6142B /* green_diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_diamond.png; sourceTree = "<group>"; };
 		C62BA8651768AD2F00F6142B /* triplet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triplet.png; sourceTree = "<group>"; };
+		C639B0941772055E003EC66A /* TSNamedColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSNamedColor.h; sourceTree = "<group>"; };
+		C639B0951772055E003EC66A /* TSNamedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNamedColor.m; sourceTree = "<group>"; };
 		C653BAF51770CC2B00C3B82B /* TSGameStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameStatsModel.h; sourceTree = "<group>"; };
 		C653BAF61770CC2B00C3B82B /* TSGameStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameStatsModel.m; sourceTree = "<group>"; };
 		C653BAF81770CEE100C3B82B /* TSPlayerStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPlayerStatsModel.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 		C653BAFB1770E6B300C3B82B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C639B0941772055E003EC66A /* TSNamedColor.h */,
+				C639B0951772055E003EC66A /* TSNamedColor.m */,
 				C60C4F9A1771264C0055745A /* TSSettingManager.h */,
 				C60C4F9B1771264C0055745A /* TSSettingManager.m */,
 				C653BAFC1770E6BE00C3B82B /* TSUtil.h */,
@@ -329,6 +334,7 @@
 				C60C4F9C1771264C0055745A /* TSSettingManager.m in Sources */,
 				C60C4F9F177135410055745A /* TSSettingsViewController.m in Sources */,
 				C60C4FA217713E220055745A /* TSColorSelectorController.m in Sources */,
+				C639B0961772055E003EC66A /* TSNamedColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

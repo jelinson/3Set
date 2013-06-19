@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TSNamedColor.h"
 
 @interface TSSettingManager : NSObject
 
@@ -18,7 +19,7 @@
 -(id) init;
 -(void) updateNumberOfCards:(int) newPerference;
 -(void) updateHideFrameDuringPlay:(BOOL) newPerference;
--(void) updateBackgroundColor:(UIColor*) newPerference withName:(NSString*) name;
+-(void) updateBackgroundColor:(TSNamedColor*) newPerference;
 
 +(id) getSettingManagerInstance;
 +(void) registerAppDefaults;
