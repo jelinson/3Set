@@ -19,6 +19,7 @@ const double TSSettingManager_BGR_B_DEFAULT = 0.941;
 @synthesize numberOfCards;
 @synthesize hideFrameDuringPlay;
 @synthesize backgroundColor;
+@synthesize colorName;
 
 -(id) init
 {
@@ -40,6 +41,7 @@ const double TSSettingManager_BGR_B_DEFAULT = 0.941;
     double backgroundG = [defaults doubleForKey:@"BackgroundGreen"];
     double backgroundB = [defaults doubleForKey:@"BackgroundBlue"];
     backgroundColor = [UIColor colorWithRed:backgroundR green:backgroundG blue:backgroundB alpha:1.0];
+    colorName = [defaults stringForKey:@"ColorName"];
 }
 
 -(void) updateNumberOfCards:(int) newPerference
@@ -58,16 +60,20 @@ const double TSSettingManager_BGR_B_DEFAULT = 0.941;
     [defaults setValue:preferenceWrapper forKey:@"HideFrameDuringPlay"];
 }
 
--(void) updateBackground:(UIColor*) newPerference
+-(void) updateBackgroundColor:(UIColor *)newPerference withName:(NSString *) name
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     backgroundColor = newPerference;
+    colorName = name;
+    
     CGFloat backgroundR, backgroundB, backgroundG, alpha;
     [newPerference getRed:&backgroundR green:&backgroundG blue:&backgroundB alpha:&alpha];
     
     [defaults setValue:[NSNumber numberWithDouble:backgroundR] forKey:@"BackgroundRed"];
     [defaults setValue:[NSNumber numberWithDouble:backgroundG] forKey:@"BackgroundGreen"];
     [defaults setValue:[NSNumber numberWithDouble:backgroundB] forKey:@"BackgroundBlue"];
+    [defaults setValue:name forKey:@"ColorName"];
+    
 }
 
 +(id) getSettingManagerInstance
@@ -87,6 +93,7 @@ const double TSSettingManager_BGR_B_DEFAULT = 0.941;
     [appDefaults setObject:[NSNumber numberWithDouble:TSSettingManager_BGR_R_DEFAULT] forKey:@"BackgroundRed"];
     [appDefaults setObject:[NSNumber numberWithDouble:TSSettingManager_BGR_G_DEFAULT] forKey:@"BackgroundGreen"];
     [appDefaults setObject:[NSNumber numberWithDouble:TSSettingManager_BGR_B_DEFAULT] forKey:@"BackgroundBlue"];
+    [appDefaults setObject:@"Biege" forKey:@"ColorName"];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 }

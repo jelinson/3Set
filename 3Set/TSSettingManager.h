@@ -13,11 +13,12 @@
 @property (assign, readonly) int numberOfCards;
 @property (assign, readonly) BOOL hideFrameDuringPlay;
 @property (strong, readonly) UIColor* backgroundColor;
+@property (strong, readonly) NSString* colorName;
 
 -(id) init;
 -(void) updateNumberOfCards:(int) newPerference;
 -(void) updateHideFrameDuringPlay:(BOOL) newPerference;
--(void) updateBackground:(UIColor*) newPerference;
+-(void) updateBackgroundColor:(UIColor*) newPerference withName:(NSString*) name;
 
 +(id) getSettingManagerInstance;
 +(void) registerAppDefaults;

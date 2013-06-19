@@ -48,6 +48,8 @@
     
     bool hideFrame = [sm hideFrameDuringPlay];
     [hideFrameSwitch setOn:hideFrame];
+    
+    [backgroundColorLabel setText:[sm colorName]];
 }
 
 - (IBAction)numberOfCardsValueChanged:(id)sender {
