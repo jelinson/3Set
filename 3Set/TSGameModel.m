@@ -190,6 +190,7 @@ const int TSNEXT_CARDS_SIZE = 3;
             --cardToUpdate.indexInGameBoard;
         }
     }
+    [_lastSetIndices removeAllObjects];
 }
 
 +(NSMutableArray*)generateDeck
