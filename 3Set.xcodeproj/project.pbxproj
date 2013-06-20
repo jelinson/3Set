@@ -109,6 +109,9 @@
 		C6D3F1331772A20100D2E0FC /* 1242.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D3F1321772A20100D2E0FC /* 1242.png */; };
 		C6D3F1391772AABE00D2E0FC /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D3F1381772AABE00D2E0FC /* AppIcon.png */; };
 		C6D3F13B1772AAC700D2E0FC /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D3F13A1772AAC700D2E0FC /* AppIcon@2x.png */; };
+		C6D3F13F1772B38600D2E0FC /* multiplayer_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D3F13C1772B38600D2E0FC /* multiplayer_btn.png */; };
+		C6D3F1401772B38600D2E0FC /* quick_play_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D3F13D1772B38600D2E0FC /* quick_play_btn.png */; };
+		C6D3F1411772B38600D2E0FC /* settings_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D3F13E1772B38600D2E0FC /* settings_btn.png */; };
 		C6E4ED6D176C782C00D1F009 /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E4ED6C176C782C00D1F009 /* shuffle.png */; };
 		C6E4ED70176C7AB300D1F009 /* TSGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */; };
 		C6E4ED74176C86F800D1F009 /* TSGeneralStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E4ED73176C86F700D1F009 /* TSGeneralStatsViewController.m */; };
@@ -238,6 +241,9 @@
 		C6D3F1321772A20100D2E0FC /* 1242.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1242.png; sourceTree = "<group>"; };
 		C6D3F1381772AABE00D2E0FC /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		C6D3F13A1772AAC700D2E0FC /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		C6D3F13C1772B38600D2E0FC /* multiplayer_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = multiplayer_btn.png; path = 3Set/multiplayer_btn.png; sourceTree = "<group>"; };
+		C6D3F13D1772B38600D2E0FC /* quick_play_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quick_play_btn.png; path = 3Set/quick_play_btn.png; sourceTree = "<group>"; };
+		C6D3F13E1772B38600D2E0FC /* settings_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_btn.png; path = 3Set/settings_btn.png; sourceTree = "<group>"; };
 		C6E4ED6C176C782C00D1F009 /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle.png; sourceTree = "<group>"; };
 		C6E4ED6E176C7AB300D1F009 /* TSGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGameViewController.h; sourceTree = "<group>"; };
 		C6E4ED6F176C7AB300D1F009 /* TSGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGameViewController.m; sourceTree = "<group>"; };
@@ -277,6 +283,9 @@
 		C62BA82D1768940900F6142B = {
 			isa = PBXGroup;
 			children = (
+				C6D3F13C1772B38600D2E0FC /* multiplayer_btn.png */,
+				C6D3F13D1772B38600D2E0FC /* quick_play_btn.png */,
+				C6D3F13E1772B38600D2E0FC /* settings_btn.png */,
 				C6D3F13A1772AAC700D2E0FC /* AppIcon@2x.png */,
 				C6D3F1381772AABE00D2E0FC /* AppIcon.png */,
 				C62BA83F1768940900F6142B /* 3Set */,
@@ -637,6 +646,9 @@
 				C6D3F1331772A20100D2E0FC /* 1242.png in Resources */,
 				C6D3F1391772AABE00D2E0FC /* AppIcon.png in Resources */,
 				C6D3F13B1772AAC700D2E0FC /* AppIcon@2x.png in Resources */,
+				C6D3F13F1772B38600D2E0FC /* multiplayer_btn.png in Resources */,
+				C6D3F1401772B38600D2E0FC /* quick_play_btn.png in Resources */,
+				C6D3F1411772B38600D2E0FC /* settings_btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
