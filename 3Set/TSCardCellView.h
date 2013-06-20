@@ -17,7 +17,7 @@
 @property (weak, readwrite) TSCardModel* card;
 
 @property (strong) UIImage* imgSrc;
-@property (strong) NSString* imgPath;
+@property (strong) NSMutableString* imgPath;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 -(void)assignCard:(TSCardModel *)card;

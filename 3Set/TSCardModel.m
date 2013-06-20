@@ -42,7 +42,7 @@ const int TSALL_DIFFERENT_MASK = 0b111;
 {
     NSMutableString* attributeSummary = [[NSMutableString alloc] init];
     for (int i = 0; i < [_attributes count]; ++i) {
-        [attributeSummary appendFormat:@"%d ", [_attributes[i] intValue]];
+        [attributeSummary appendFormat:@"%d", [_attributes[i] intValue]];
     }
     return attributeSummary;
 }

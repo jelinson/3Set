@@ -18,10 +18,10 @@ extern const int TSN_ATTRIBUTE_VALUES;
 extern const int TSALL_DIFFERENT_MASK;
 
 typedef enum {
-    TSColorAttribute = 0,
+    TSShapeAttribute = 0,
     TSShadeAttribute = 1,
+    TSColorAttribute = 0,
     TSNumberAttribute = 2,
-    TSShapeAttribute = 3
 } TSAttributeType;
 
 extern const int TSN_ATTRIBUTE_TYPES;

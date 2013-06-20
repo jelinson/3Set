@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 AIT. All rights reserved.
 //
 
+#import <CoreImage/CoreImage.h>
+#import <CoreGraphics/CoreGraphics.h>
 #import "TSCardCellView.h"
 
 @implementation TSCardCellView
@@ -27,15 +29,13 @@
 {
     _card = card;
     [cardLabel setHidden:YES];
-    //[cardLabel setText:[self.card toString]];
+    [self setAlpha:0.0];
 
-    imgPath = @"green_diamond_por.png";
+    imgPath = [NSMutableString stringWithString: [card toString]];
+    [imgPath appendString:@".png"];
     imgSrc = [UIImage imageNamed:imgPath];
+    [imgView setOpaque:FALSE];
     [imgView setImage:imgSrc];
-
-    
-    //[imgView setFrame: [self frame]];
-    //imgView.contentMode = UIViewContentModeScaleToFill;
 }
 
 @end
