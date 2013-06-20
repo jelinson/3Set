@@ -12,24 +12,15 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="triplet.png" translatesAutoresizingMaskIntoConstraints="NO" id="VnT-0H-gOq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="VnT-0H-gOq">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="237" id="0Rw-Cu-lXS"/>
-                                    <constraint firstAttribute="height" constant="93" id="JW4-MW-3KI"/>
+                                    <constraint firstAttribute="height" constant="132" id="X7Q-GU-eGQ"/>
+                                    <constraint firstAttribute="width" constant="336" id="bTH-GW-rxv"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wp4-VH-jeH">
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Quick Play" backgroundImage="green_diamond.png">
-                                    <color key="titleColor" red="0.2751683207777002" green="0.43805850276431701" blue="0.74378188775510212" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="green_diamond.png"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvr-Zu-kOG">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="VXb-ef-waW"/>
+                                    <constraint firstAttribute="height" constant="71" id="3Wx-DM-iOx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Mutliplayer" backgroundImage="multiplayer_btn.png">
@@ -42,7 +33,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pua-pT-ewO">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="Pzd-Z2-dNB"/>
+                                    <constraint firstAttribute="height" constant="71" id="3aN-Wp-Lzc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Settings" backgroundImage="settings_btn.png">
@@ -58,8 +49,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io6-2f-bIK">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="EHA-Dy-kpE"/>
-                                    <constraint firstAttribute="width" constant="163" id="ELt-WE-WIB"/>
+                                    <constraint firstAttribute="height" constant="70" id="YbF-UO-yCw"/>
+                                    <constraint firstAttribute="width" constant="146" id="moT-Br-nhz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,20 +73,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99643053179999996" blue="0.93622613629999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="VnT-0H-gOq" firstAttribute="top" secondItem="3" secondAttribute="top" constant="37" id="1B6-f6-Uww"/>
-                            <constraint firstItem="Vvr-Zu-kOG" firstAttribute="top" secondItem="wp4-VH-jeH" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="88z-2w-afn"/>
-                            <constraint firstItem="Io6-2f-bIK" firstAttribute="leading" secondItem="wp4-VH-jeH" secondAttribute="leading" type="default" id="E8U-h0-bsm"/>
-                            <constraint firstItem="Io6-2f-bIK" firstAttribute="top" secondItem="3" secondAttribute="top" constant="173" id="FgE-zY-8P0"/>
-                            <constraint firstItem="Io6-2f-bIK" firstAttribute="centerX" secondItem="VnT-0H-gOq" secondAttribute="centerX" type="default" id="OYn-Yy-0SN"/>
-                            <constraint firstItem="Io6-2f-bIK" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="ZCN-WO-aGZ"/>
-                            <constraint firstItem="pua-pT-ewO" firstAttribute="top" secondItem="Vvr-Zu-kOG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gk0-Cz-vZ5"/>
-                            <constraint firstItem="Io6-2f-bIK" firstAttribute="trailing" secondItem="wp4-VH-jeH" secondAttribute="trailing" type="default" id="kQ6-Kl-4U4"/>
-                            <constraint firstItem="Io6-2f-bIK" firstAttribute="leading" secondItem="Vvr-Zu-kOG" secondAttribute="leading" type="default" id="mLe-8w-c85"/>
-                            <constraint firstItem="pua-pT-ewO" firstAttribute="leading" secondItem="Vvr-Zu-kOG" secondAttribute="leading" type="default" id="oOR-ks-ifb"/>
-                            <constraint firstItem="Io6-2f-bIK" firstAttribute="top" secondItem="wp4-VH-jeH" secondAttribute="top" type="default" id="sa1-PZ-bRb"/>
-                            <constraint firstItem="pua-pT-ewO" firstAttribute="trailing" secondItem="Vvr-Zu-kOG" secondAttribute="trailing" type="default" id="vck-fJ-SwE"/>
-                            <constraint firstItem="Vvr-Zu-kOG" firstAttribute="top" secondItem="Io6-2f-bIK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wMv-hh-eWz"/>
-                            <constraint firstItem="Vvr-Zu-kOG" firstAttribute="trailing" secondItem="wp4-VH-jeH" secondAttribute="trailing" type="default" id="yib-0E-srP"/>
+                            <constraint firstItem="Vvr-Zu-kOG" firstAttribute="leading" secondItem="Io6-2f-bIK" secondAttribute="leading" type="default" id="7ma-BU-Ev0"/>
+                            <constraint firstItem="VnT-0H-gOq" firstAttribute="top" secondItem="3" secondAttribute="top" constant="49" id="8Ah-ds-VBk"/>
+                            <constraint firstItem="VnT-0H-gOq" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="-21" id="8VC-aE-h7N"/>
+                            <constraint firstAttribute="bottom" secondItem="pua-pT-ewO" secondAttribute="bottom" constant="111" id="NEm-O9-zQx"/>
+                            <constraint firstItem="Io6-2f-bIK" firstAttribute="top" secondItem="3" secondAttribute="top" constant="210" id="Q6r-gB-Rb4"/>
+                            <constraint firstItem="Vvr-Zu-kOG" firstAttribute="trailing" secondItem="pua-pT-ewO" secondAttribute="trailing" type="default" id="Qyn-O9-mm0"/>
+                            <constraint firstItem="Vvr-Zu-kOG" firstAttribute="trailing" secondItem="Io6-2f-bIK" secondAttribute="trailing" type="default" id="RMU-uY-Z99"/>
+                            <constraint firstItem="pua-pT-ewO" firstAttribute="top" secondItem="Vvr-Zu-kOG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cPV-DL-k8k"/>
+                            <constraint firstItem="Io6-2f-bIK" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="jGt-Of-tWt"/>
+                            <constraint firstItem="Vvr-Zu-kOG" firstAttribute="leading" secondItem="pua-pT-ewO" secondAttribute="leading" type="default" id="oWv-MH-Bht"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hef-7J-jnS">
@@ -947,12 +934,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="green_diamond.png" width="540" height="359"/>
+        <image name="logo.png" width="1056" height="530"/>
         <image name="multiplayer_btn.png" width="365" height="218"/>
         <image name="quick_play_btn.png" width="365" height="218"/>
         <image name="settings_btn.png" width="365" height="218"/>
         <image name="shuffle.png" width="20" height="20"/>
-        <image name="triplet.png" width="1142" height="565"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
