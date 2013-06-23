@@ -73,6 +73,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 - (IBAction)onShuffleCardsClick:(id)sender
 {
+    [gameModel testCardIndicesMatch];
     [self interfaceInteractionEvent];
     
     NSArray* transformations = [gameModel shuffle];
@@ -86,11 +87,13 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
             [[self collectionView] moveItemAtIndexPath:src toIndexPath:dst];
         }
     } completion:nil];
+    [gameModel testCardIndicesMatch];
     
 }
 
 - (IBAction)onAddCardsClick:(id)sender
 {
+    [gameModel testCardIndicesMatch];
     [self interfaceInteractionEvent];
     
     NSArray* nextCards = [gameModel dealNextCardsExtra:YES];
@@ -103,6 +106,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
         [[self collectionView] insertItemsAtIndexPaths:indexPathsOfNextCards];
     } completion:nil];
     [self processMoreCards];
+    [gameModel testCardIndicesMatch];
 }
 
 - (IBAction)onViewClick:(id)sender
@@ -165,29 +169,34 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(void)handleValidSetEventFromCollectionView:(UICollectionView*) collectionView
 {
+    [gameModel testCardIndicesMatch];
     NSLog(@"Valid set");
     BOOL addCards = [gameModel cardsInPlayCount] <= [gameModel startingSize];
-    
     TSSetModel* solvedSet = [gameModel processAndReturnSolvedSet];
     [self processStatsForSolvedSet:solvedSet];
     
     NSArray* selectedItems = [collectionView indexPathsForSelectedItems];
-    
     NSMutableArray* indexPathsOfNextCards = [NSMutableArray array];
     
     if (addCards) {
         NSLog(@"Adding cards");
         NSArray* nextCards = [gameModel dealNextCardsExtra:NO];
+        [gameModel assignBoardIndicesToCards];
+
         for (TSCardModel* card in nextCards) {
             NSIndexPath* indexPathForCard = [NSIndexPath indexPathForItem:[card indexInGameBoard] inSection:0];
             [indexPathsOfNextCards addObject:indexPathForCard];
         }
     } else {
         NSLog(@"Not adding cards");
-        [gameModel updateCardIndicesForShrinkingBoard];
+        [[gameModel _lastSetIndices] removeAllObjects];
+        [gameModel assignBoardIndicesToCards];
+        //[gameModel updateCardIndicesForShrinkingBoard];
     }
-
+    
+    [gameModel testCardIndicesMatch];
     [self processMoreCards];
+    [gameModel testCardIndicesMatch];
     
     [setStatusLabel setText:@"Set!"];
     [self setStatusFadeInOut];
@@ -198,10 +207,12 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     } completion:nil];
     
     lastSetTimeStamp = gameTimerSeconds;
+    [gameModel testCardIndicesMatch];
 }
 
 -(void)handleInvalidSetEventFromCollectionView:(UICollectionView*) collectionView
 {
+    [gameModel testCardIndicesMatch];
     NSLog(@"Invalid set");
     
     [setStatusLabel setText:@"Not A Set!"];
@@ -216,6 +227,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
     
     [gameModel cancelWorkingSet];
     [gameStats processInvalidSet:0];
+    [gameModel testCardIndicesMatch];
 }
 
 -(void)processMoreCards

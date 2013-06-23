@@ -46,6 +46,8 @@ extern const int TSNEXT_CARDS_SIZE;
 -(int)cardsInPlayCount;
 -(NSArray*)shuffle;
 -(void)updateCardIndicesForShrinkingBoard;
+-(void)testCardIndicesMatch;
+- (void)assignBoardIndicesToCards;
 
 +(NSMutableArray*)generateDeck;
 +(TSGameModel*)getGameInstanceForPlayers:(int) nPlayers andClear:(BOOL)clear;

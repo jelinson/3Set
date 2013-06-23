@@ -41,6 +41,7 @@ const int TSNEXT_CARDS_SIZE = 3;
         [card setIndexInGameBoard:[_board count]];
         [_board addObject:card];
     }
+    
     return _board;
 }
 
@@ -61,6 +62,7 @@ const int TSNEXT_CARDS_SIZE = 3;
         }
         [nextCards addObject:card];
     }
+    
     return nextCards;
 }
 
@@ -99,6 +101,13 @@ const int TSNEXT_CARDS_SIZE = 3;
         NSLog(@"WARNING: Tried to remove an invalid card from a set");
 }
 
+- (void)assignBoardIndicesToCards
+{
+    for (int i = 0; i < [_board count]; ++i) {
+        [[_board objectAtIndex:i] setIndexInGameBoard:i];
+    }
+}
+
 -(TSSetModel*) processAndReturnSolvedSet
 {
     if (![_workingSet isValid]) {
@@ -112,7 +121,7 @@ const int TSNEXT_CARDS_SIZE = 3;
     _lastSetIndices = [_workingSet sortedIndicesInGameBoardOfSet];
     
     for (TSCardModel* card in [_workingSet cards]) {
-        [_board removeObject:card];
+        [_board removeObjectIdenticalTo:card];
     }
     
     _workingSet = nil;
@@ -135,7 +144,7 @@ const int TSNEXT_CARDS_SIZE = 3;
     uint32_t randomIndex = arc4random_uniform([_deck count]);
     TSCardModel* card = [_deck objectAtIndex:randomIndex];
     [_deck removeObjectAtIndex:randomIndex];
-
+    
     return card;
 }
 
@@ -181,16 +190,24 @@ const int TSNEXT_CARDS_SIZE = 3;
     return transformations;
 }
 
--(void)updateCardIndicesForShrinkingBoard
+//-(void)updateCardIndicesForShrinkingBoard
+//{
+//    for (int i = 0; i < [_lastSetIndices count]; ++i) {
+//        int index = [[_lastSetIndices objectAtIndex:i] intValue];
+//        for (; index < [_board count]; ++index) {
+//            TSCardModel* cardToUpdate = [_board objectAtIndex:index];
+//            --cardToUpdate.indexInGameBoard;
+//        }
+//    }
+//    [_lastSetIndices removeAllObjects];
+//}
+
+-(void)testCardIndicesMatch
 {
-    for (int i = 0; i < [_lastSetIndices count]; ++i) {
-        int index = [[_lastSetIndices objectAtIndex:i] intValue];
-        for (; index < [_board count]; ++index) {
-            TSCardModel* cardToUpdate = [_board objectAtIndex:index];
-            --cardToUpdate.indexInGameBoard;
-        }
+    for (int i = 0; i < [_board count]; ++i) {
+        int j = [[_board objectAtIndex:i] indexInGameBoard];
+        assert(i == j);
     }
-    [_lastSetIndices removeAllObjects];
 }
 
 +(NSMutableArray*)generateDeck
