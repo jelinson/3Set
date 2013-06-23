@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    TSSolvedSetNoDifferent = 0,
     TSSolvedSetOneDifferent = 1,
     TSSolvedSetTwoDifferent = 2,
     TSSolvedSetThreeDifferent = 3,

@@ -62,7 +62,7 @@ const int TSSET_SIZE = 3;
 
 -(void)validate
 {
-    desc = TSSolvedSetNoDifferent;
+    desc = 0;
     for (int i = 0; i < TSN_ATTRIBUTE_TYPES; ++i) {
         int same = ~0;
         int diff = 0;

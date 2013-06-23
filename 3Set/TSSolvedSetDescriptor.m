@@ -15,8 +15,6 @@ const int TSNumberOfSolvedSetTypes = 5;
 +(NSString*)generateSolvedSetDescription:(TSSolvedSetDescription)description
 {
     switch (description) {
-        case TSSolvedSetNoDifferent:
-            return @"All attributes the same";
         case TSSolvedSetOneDifferent:
             return @"Three attributes the same, one different";
         case TSSolvedSetTwoDifferent:

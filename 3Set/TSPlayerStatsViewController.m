@@ -15,7 +15,7 @@
 @implementation TSPlayerStatsViewController
 
 @synthesize setsFoundDetailLabel, falseAlarmsDetailLabel, scoreDetailLabel;
-@synthesize allDifferentDetailLabel, threeDifferentDetailLabel, twoDifferentDetailLabel, oneDifferentDetailLabel, noDifferentDetailLabel;
+@synthesize allDifferentDetailLabel, threeDifferentDetailLabel, twoDifferentDetailLabel, oneDifferentDetailLabel;
 
 @synthesize avgTimeDetailLabel, fastestDetailLabel, slowestDetailLabel;// typeLabelsArray;
 @synthesize playerStats;
@@ -70,7 +70,6 @@
 //        [self fillInLabel:[typeLabelsArray objectAtIndex:(int)type] withTime:[playerStats countForType:type]];
 //    }
     
-    [self fillInLabel:noDifferentDetailLabel withInt:[playerStats countForType:TSSolvedSetNoDifferent]];
     [self fillInLabel:oneDifferentDetailLabel withInt:[playerStats countForType:TSSolvedSetOneDifferent]];
     [self fillInLabel:twoDifferentDetailLabel withInt:[playerStats countForType:TSSolvedSetTwoDifferent]];
     [self fillInLabel:threeDifferentDetailLabel withInt:[playerStats countForType:TSSolvedSetThreeDifferent]];

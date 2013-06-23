@@ -761,7 +761,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="1US-7P-DJD" detailTextLabel="fC5-4w-fbO" style="IBUITableViewCellStyleValue1" id="qGa-kA-Dzf">
-                                        <rect key="frame" x="0.0" y="323" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="323" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -785,37 +785,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ZJj-Nb-1Az" detailTextLabel="Bbn-mR-v8C" style="IBUITableViewCellStyleValue1" id="oHf-dl-5aF">
-                                        <rect key="frame" x="0.0" y="367" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="All The Same" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZJj-Nb-1Az">
-                                                    <rect key="frame" x="10" y="11" width="107" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bbn-mR-v8C">
-                                                    <rect key="frame" x="246" y="11" width="44" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection footerTitle="Time is measured from confirming the previous set to selecting the first card of a new set" id="6uW-Bd-ecz">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ya1-Vx-lWY" detailTextLabel="hbY-5Y-vBk" style="IBUITableViewCellStyleValue1" id="ICA-AM-9Xi">
-                                        <rect key="frame" x="0.0" y="432" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="388" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -836,7 +811,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DFf-nh-Oep" detailTextLabel="bvx-yJ-0rp" style="IBUITableViewCellStyleValue1" id="w1y-zm-3Go">
-                                        <rect key="frame" x="0.0" y="477" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="433" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -857,7 +832,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Jy3-s2-PMa" detailTextLabel="NP3-ZZ-wcc" style="IBUITableViewCellStyleValue1" id="twN-N8-jas">
-                                        <rect key="frame" x="0.0" y="521" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="477" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -897,7 +872,6 @@
                         <outlet property="avgTimeDetailLabel" destination="hbY-5Y-vBk" id="AAQ-pM-3ur"/>
                         <outlet property="falseAlarmsDetailLabel" destination="u3r-lS-2kP" id="bsP-o1-AA8"/>
                         <outlet property="fastestDetailLabel" destination="bvx-yJ-0rp" id="pLs-eg-bTS"/>
-                        <outlet property="noDifferentDetailLabel" destination="Bbn-mR-v8C" id="aks-7B-dvH"/>
                         <outlet property="oneDifferentDetailLabel" destination="fC5-4w-fbO" id="dNG-ID-ZL4"/>
                         <outlet property="scoreDetailLabel" destination="BGJ-Dr-fhf" id="OC8-at-zua"/>
                         <outlet property="setsFoundDetailLabel" destination="b3L-HL-ED7" id="isO-kC-SMJ"/>

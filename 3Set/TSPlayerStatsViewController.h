@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *threeDifferentDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *twoDifferentDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *oneDifferentDetailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *noDifferentDetailLabel;
 
 
 
