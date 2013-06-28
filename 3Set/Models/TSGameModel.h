@@ -36,18 +36,21 @@ extern const int TSNEXT_CARDS_SIZE;
 -(id)initForPlayers:(int) numberOfPlayers;
 -(NSArray*)deal;
 -(NSArray*)dealNextCardsExtra:(BOOL)extra;
+-(NSArray*)shuffle;
+
 -(bool)hasMoreCards;
 -(bool)definitelyASet;
+
 -(TSGameModelReturnCode)addToWorkingSet:(TSCardModel*) card;
--(void)removeFromWorkingSet:(TSCardModel*) card;
 -(TSSetModel*)processAndReturnSolvedSet;
+-(void)removeFromWorkingSet:(TSCardModel*) card;
 -(void)cancelWorkingSet;
+
 -(int)cardsRemainingInDesk;
 -(int)cardsInPlayCount;
--(NSArray*)shuffle;
--(void)updateCardIndicesForShrinkingBoard;
+
+-(void)assignBoardIndicesToCards;
 -(void)testCardIndicesMatch;
-- (void)assignBoardIndicesToCards;
 
 +(NSMutableArray*)generateDeck;
 +(TSGameModel*)getGameInstanceForPlayers:(int) nPlayers andClear:(BOOL)clear;

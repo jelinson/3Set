@@ -40,7 +40,7 @@
 
 -(void)loadStats
 {
-    // TODO dynamic number of players
+    // TODO: extend for multiplayer
     gameStats = [[TSGameModel getGameInstanceForPlayers:1 andClear:NO] gameStats];
 }
 
@@ -60,32 +60,38 @@
 
 #pragma mark -Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 2;
-//}
+/* - Static, loaded from storyboard
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+*/
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    switch (section) {
-//        case 0:
-//            return 4;
-//        case 1:
-//            return 1;
-//        default:
-//            return 0;
-//    }
-//}
+/* - Static, loaded from storyboard
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return 4;
+        case 1:
+            return 1;
+        default:
+            return 0;
+    }
+}
+*/
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
+/* - Static, loaded from storyboard
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+*/
 
 /*
 // Override to support conditional editing of the table view.

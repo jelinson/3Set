@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern const char* TSIMG_FILE_EXT;
+
 @interface TSUtil : NSObject
 
 +(NSString*) formatTimeFromSeconds:(int)totalSeconds;

@@ -40,7 +40,7 @@
     totalTime += time;
     ++setsFound;
     
-    // this feels sketchy
+    // TODO: there must be an easier way to do this in obj-c
     int type = [properties _desc];
     NSNumber* count = [setTypeCount objectAtIndex:type];
     NSNumber* incrementedCount = [NSNumber numberWithInt:([count intValue] + 1)];

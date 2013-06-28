@@ -79,6 +79,4 @@
     return cell;
 }
 
-// for didSelectRowPath, get the corresponding UIColor and save it to the preference; then cause a back end in the navigation
-
 @end

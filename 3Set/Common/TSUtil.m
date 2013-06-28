@@ -8,6 +8,8 @@
 
 #import "TSUtil.h"
 
+const char* TSIMG_FILE_EXT = ".png";
+
 @implementation TSUtil
 
 +(NSString*) formatTimeFromSeconds:(int)totalSeconds

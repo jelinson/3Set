@@ -155,7 +155,6 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog([NSString stringWithFormat:@"CellQueried %d", [indexPath item]]);
     TSCardCellView* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCellID" forIndexPath:indexPath];
     
     UIView* blueColorView = [[UIView alloc] init];
@@ -191,7 +190,6 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
         NSLog(@"Not adding cards");
         [[gameModel _lastSetIndices] removeAllObjects];
         [gameModel assignBoardIndicesToCards];
-        //[gameModel updateCardIndicesForShrinkingBoard];
     }
     
     [gameModel testCardIndicesMatch];
@@ -241,7 +239,7 @@ const int TSINTERACTION_TIME_THRESHOLD = 2;
 -(void)processStatsForSolvedSet:(TSSetModel*)solvedSet
 {
     int time = gameTimerSeconds - lastSetTimeStamp;
-    int playerId = 0; // TODO: multiplayer
+    int playerId = 0; // TODO: extend for multiplayer
     TSSolvedSetProperties* properties = [[TSSolvedSetProperties alloc] initWithPlayer:playerId andTime:time andDesciption:[solvedSet desc]];
     [gameStats processSolvedSet:properties];
 }

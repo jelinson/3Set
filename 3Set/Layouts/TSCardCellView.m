@@ -9,6 +9,7 @@
 #import <CoreImage/CoreImage.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import "TSCardCellView.h"
+#import "TSUtil.h"
 
 @implementation TSCardCellView
 
@@ -32,7 +33,7 @@
     [self setAlpha:0.0];
 
     imgPath = [NSMutableString stringWithString: [card toString]];
-    [imgPath appendString:@".png"];
+    [imgPath appendString:[NSString stringWithUTF8String:TSIMG_FILE_EXT]];
     imgSrc = [UIImage imageNamed:imgPath];
     [imgView setOpaque:FALSE];
     [imgView setImage:imgSrc];

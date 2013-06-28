@@ -62,8 +62,7 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     screenW = (int) screenRect.size.width;
     screenH = (int) screenRect.size.height;
     
-    // todo: this should probably be passed (in cases such as resuming cases)
-    // let's see if this will handle it all
+    // TODO: this should be set somewhere, in cases where a game is resuming
     [self updateBoardSize: [[TSSettingManager getSettingManagerInstance] numberOfCards]];
     
 }
@@ -92,7 +91,7 @@ const int TSXSM_SIZE_THRESHOLD = 18;
 
 -(void) calculateGridDimensions
 {
-    // ceil
+    // ceiling
     nRows = (nCardsInPlay + currentCellPerRow - 1) / currentCellPerRow;
     nCols = currentCellPerRow;
 }
