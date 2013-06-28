@@ -16,22 +16,11 @@
 
 @implementation TSLandingPageViewController
 
-
-- (id) init
-{
-    self = [super init];
-    if (self) {
-        [self configureViewController];
-    }
-    
-    return self;
-}
-
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self configureViewController];
+        // customize
     }
     return self;
 }
@@ -40,14 +29,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self configureViewController];
+        // customize
     }
     return self;
-}
-
-- (void) configureViewController
-{
-
 }
 
 - (void)viewWillAppear:(BOOL)animated

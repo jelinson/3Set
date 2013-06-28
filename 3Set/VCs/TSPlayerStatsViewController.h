@@ -25,10 +25,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *twoDifferentDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *oneDifferentDetailLabel;
 
-
-
-
 @property (weak) TSPlayerStatsModel* playerStats;
-//@property (strong) NSMutableArray* typeLabelsArray;
 
 @end

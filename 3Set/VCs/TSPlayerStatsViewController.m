@@ -17,7 +17,7 @@
 @synthesize setsFoundDetailLabel, falseAlarmsDetailLabel, scoreDetailLabel;
 @synthesize allDifferentDetailLabel, threeDifferentDetailLabel, twoDifferentDetailLabel, oneDifferentDetailLabel;
 
-@synthesize avgTimeDetailLabel, fastestDetailLabel, slowestDetailLabel;// typeLabelsArray;
+@synthesize avgTimeDetailLabel, fastestDetailLabel, slowestDetailLabel;
 @synthesize playerStats;
 
 - (id)initWithStyle:(UITableViewStyle)style
