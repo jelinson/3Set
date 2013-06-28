@@ -29,20 +29,6 @@
     return self;
 }
 
--(void) viewDidLoad
-{
-    [super viewDidLoad];
-//    NSLog(@"PlayerStats viewDidLoad");
-//    typeLabelsArray = [[NSMutableArray alloc] init];
-//    [typeLabelsArray addObject:noDifferentSetCountDetailLabel];
-//    [typeLabelsArray addObject:oneDifferentSetCountDetailLabel];
-//    [typeLabelsArray addObject:twoDifferentSetCountDetailLabel];
-//    [typeLabelsArray addObject:threeDiferentSetCountDetailLabel];
-//    [typeLabelsArray addObject:allDifferentSetCountDetailLabel];
-//    
-//    NSLog([NSString stringWithFormat:@"Size of typeLabelsArray after creation %d", [typeLabelsArray count]]);
-}
-
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

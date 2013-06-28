@@ -118,7 +118,7 @@ const int TSXSM_SIZE_THRESHOLD = 18;
     }
     
     if (newSizeType != self.boardSize || tmpOldNCardsInPlay != nCardsInPlay || tmpOldNCardsInPlay == 0) {
-        NSLog([NSString stringWithFormat: @"Board size changed from %d to %d", tmpOldNCardsInPlay, newSize]);
+        NSLog(@"Board size changed from %d to %d", tmpOldNCardsInPlay, newSize);
         self.boardSize = newSizeType;
         [self updateCurrentDimensions];
         return true;
