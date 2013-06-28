@@ -61,4 +61,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)multiplayerSelection:(id)sender {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Multiplayer" message:@"This feature has not yet been implemented." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [alert show];
+}
+
 @end
